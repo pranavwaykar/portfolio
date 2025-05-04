@@ -1,0 +1,26 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.projects {
+  padding: $spacing-xxl 0;
+  
+  h2 {
+    text-align: left;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-xxl;
+    
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+    }
+    
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+} 

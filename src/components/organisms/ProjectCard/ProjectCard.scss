@@ -1,57 +1,34 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-
-.projects {
-  max-width: 900px;
-  width: 95%;
-  margin: 0 auto;
-  &__grid {
-    display: grid;
-    gap: $spacing-xxl;
-    @include respond-to(md) {
-      grid-template-columns: 1fr;
-    }
-    @include respond-to(lg) {
-      grid-template-columns: 1fr 1fr;
-    }
+.project-card {
+  &__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
   }
-  h2 {
-    text-align: left;
-    color: $primary-color;
-    font-weight: 700;
-    margin-bottom: $spacing-lg;
+  
+  &__tech {
+    background: linear-gradient(90deg, $secondary-color 0%, $primary-color 100%);
+    color: $white;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    box-shadow: 0 1px 4px rgba(44, 62, 80, 0.08);
+    margin-bottom: 2px;
+    transition: background 0.2s;
+    white-space: nowrap;
   }
-
-  .project-card {
-    &__technologies {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $spacing-sm;
-      margin-bottom: $spacing-md;
-    }
-    
-    &__tech {
-      background: linear-gradient(90deg, $secondary-color 0%, $primary-color 100%);
-      color: $white;
-      padding: 4px 14px;
-      border-radius: 999px;
-      font-size: $font-size-sm;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.08);
-      margin-bottom: 2px;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    
-    &__actions {
-      display: flex;
-      gap: $spacing-sm;
-      margin-top: $spacing-md;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
-  } 
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 } 
 

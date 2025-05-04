@@ -5,3 +5,9 @@ body {
   background: linear-gradient(120deg, #f8fafc 0%, #f3f6fa 100%);
 }
 
+@media (min-width: 1080px) {
+  section {
+    padding: 10% !important;
+  }
+}
+
