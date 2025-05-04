@@ -197,6 +197,7 @@
     font-weight: 800;
     color: $primary-color;
     margin-bottom: $spacing-sm;
+    margin-right: $spacing-sm;
     line-height: 1.1;
     letter-spacing: -0.02em;
     
@@ -205,6 +206,7 @@
     }
   }
 
+
   &__highlight {
     background: linear-gradient(120deg, #b31217 0%, #162447 100%);
     background-clip: text;
@@ -212,7 +214,7 @@
     -webkit-text-fill-color: transparent;
     position: relative;
     display: inline-block;
-    padding: 0 0.2em;
+    
     
     &::after {
       content: '';

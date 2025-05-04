@@ -5,8 +5,8 @@ import Button from '../../atoms/Button/Button';
 
 const subtitleTexts = [
   'Frontend Developer',
-  'UI Enthusiast',
-  'React & SASS Specialist',
+  'Graphic Designer',
+  'Video Editor',
 ];
 
 const socials = [
@@ -254,7 +254,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero__content" ref={contentRef}>
-          <h1 className="hero__title">Hi, I'm <span className="hero__highlight">Your Name</span></h1>
+          <h1 className="hero__title">Hi, I'm <span className="hero__highlight">Pranav Waykar</span></h1>
           <h2 className="hero__subtitle">
             <span className="typewriter">{subtitle}</span>
             <span className="typewriter-cursor">|</span>
