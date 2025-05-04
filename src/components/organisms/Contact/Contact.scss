@@ -30,6 +30,7 @@
     font-family: inherit;
     resize: none;
     transition: border 0.2s;
+    background-color: $white;
     &:focus {
       border: 1.5px solid $secondary-color;
       outline: none;
