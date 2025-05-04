@@ -16,11 +16,11 @@ gsap.registerPlugin(ScrollTrigger);
 // Professional color palette for technology groups
 const colors = {
   frameworks: '#2C5282', // Deep blue for React, Vue, HTML
-  styling: '#805AD5',    // Rich purple for CSS, SASS
-  scripting: '#38A169',  // Forest green for JS, TS, jQuery
-  backend: '#D69E2E',    // Warm gold for Node, MongoDB
-  ui: '#3182CE',         // Sky blue for Tailwind, Bootstrap, Mantine
-  vcs: '#4A5568'         // Slate gray for Github, Gitlab
+  styling: '#AC87C5',    // Rich purple for CSS, SASS
+  scripting: '#776B5D',  // Forest green for JS, TS, jQuery
+  backend: '#D5F0C1',    // Warm gold for Node, MongoDB
+  ui: '#AEE2FF',         // Sky blue for Tailwind, Bootstrap, Mantine
+  vcs: '#F9B572'         // Slate gray for Github, Gitlab
 };
 
 const skills = [
