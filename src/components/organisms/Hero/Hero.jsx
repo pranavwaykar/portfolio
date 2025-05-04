@@ -61,6 +61,9 @@ const Hero = () => {
   const subtitle = useTypewriter(subtitleTexts);
   const borderRef = useRef(null);
   const imageRef = useRef(null);
+  const rippleRef = useRef(null);
+  const pulseTween = useRef(null);
+  const colorTween = useRef(null);
 
   // GSAP animation on mount
   useEffect(() => {
@@ -74,30 +77,48 @@ const Hero = () => {
       { scale: 0.7, opacity: 0 },
       { scale: 1, opacity: 1, duration: 1.2, delay: 0.2, ease: 'elastic.out(1, 0.6)' }
     );
+    // Pulse ripple animation
+    pulseTween.current = gsap.to(rippleRef.current, {
+      scale: 2.2,
+      opacity: 0,
+      repeat: -1,
+      duration: 1.8,
+      ease: 'power1.out',
+      yoyo: false,
+      delay: 0.2,
+      onRepeat: () => {
+        gsap.set(rippleRef.current, { scale: 1, opacity: 0.5 });
+      }
+    });
+    return () => {
+      pulseTween.current && pulseTween.current.kill();
+      colorTween.current && colorTween.current.kill();
+    };
   }, []);
 
-  // Parallax tilt effect on mouse move
+  // On hover: speed up pulse, shift border color, scale image
   useEffect(() => {
     const border = borderRef.current;
-    const handleMove = (e) => {
-      const rect = border.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      gsap.to(border, {
-        rotateY: x / 12,
-        rotateX: -y / 12,
-        scale: 1.04,
-        duration: 0.4,
-        ease: 'power2.out',
+    const ripple = rippleRef.current;
+    const img = imageRef.current;
+    const handleEnter = () => {
+      pulseTween.current && pulseTween.current.timeScale(2.2);
+      colorTween.current = gsap.to(border, {
+        background: 'conic-gradient(#162447 0deg 60deg, #1a2240 75deg, #23214a 90deg, #3a1a3a 110deg, #531012 130deg, #7a1a2c 150deg,rgb(125, 2, 6) 180deg 360deg)',
+        duration: 0.7,
+        ease: 'power1.inOut',
       });
+      gsap.to(img, { scale: 1.08, boxShadow: '0 0 32px 8px rgba(52,152,219,0.18)', duration: 0.4, ease: 'power2.out' });
     };
     const handleLeave = () => {
-      gsap.to(border, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: 'elastic.out(1,0.5)' });
+      pulseTween.current && pulseTween.current.timeScale(1);
+      colorTween.current && colorTween.current.reverse();
+      gsap.to(img, { scale: 1, boxShadow: '0 0 0 0 rgba(52,152,219,0.0)', duration: 0.6, ease: 'elastic.out(1,0.5)' });
     };
-    border.addEventListener('mousemove', handleMove);
+    border.addEventListener('mouseenter', handleEnter);
     border.addEventListener('mouseleave', handleLeave);
     return () => {
-      border.removeEventListener('mousemove', handleMove);
+      border.removeEventListener('mouseenter', handleEnter);
       border.removeEventListener('mouseleave', handleLeave);
     };
   }, []);
@@ -106,12 +127,15 @@ const Hero = () => {
     <section className="hero fade-in" id="hero">
       <div className="hero__wrapper">
         <div className="hero__image-container animated-border" ref={borderRef}>
-          <img
-            className="hero__image"
-            ref={imageRef}
-            src="https://media.licdn.com/dms/image/v2/D4D03AQE5evBJbAI31Q/profile-displayphoto-shrink_400_400/B4DZU1.lpWG8Ag-/0/1740367354901?e=1752105600&v=beta&t=h8j2I0h4KbvV6IlYO5GuRPYlHWNdnCJNqZwK4X7yA6M"
-            alt="Your Name"
-          />
+          <div className="hero__ripple" ref={rippleRef}></div>
+          <div className="hero__inner-ring">
+            <img
+              className="hero__image"
+              ref={imageRef}
+              src="https://media.licdn.com/dms/image/v2/D4D03AQE5evBJbAI31Q/profile-displayphoto-shrink_400_400/B4DZU1.lpWG8Ag-/0/1740367354901?e=1752105600&v=beta&t=h8j2I0h4KbvV6IlYO5GuRPYlHWNdnCJNqZwK4X7yA6M"
+              alt="Your Name"
+            />
+          </div>
         </div>
         <div className="hero__content">
           <h1 className="hero__title">Hi, I'm <span className="hero__highlight">Your Name</span></h1>
