@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import './Hero.scss';
 import Button from '../../atoms/Button/Button';
 
@@ -58,12 +59,56 @@ function useTypewriter(texts, speed = 80, pause = 1200) {
 
 const Hero = () => {
   const subtitle = useTypewriter(subtitleTexts);
+  const borderRef = useRef(null);
+  const imageRef = useRef(null);
+
+  // GSAP animation on mount
+  useEffect(() => {
+    gsap.fromTo(
+      borderRef.current,
+      { scale: 0.7, boxShadow: '0 0 0 0 rgba(52,152,219,0.0)' },
+      { scale: 1, boxShadow: '0 0 32px 8px rgba(52,152,219,0.15)', duration: 1.2, ease: 'elastic.out(1, 0.6)' }
+    );
+    gsap.fromTo(
+      imageRef.current,
+      { scale: 0.7, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.2, delay: 0.2, ease: 'elastic.out(1, 0.6)' }
+    );
+  }, []);
+
+  // Parallax tilt effect on mouse move
+  useEffect(() => {
+    const border = borderRef.current;
+    const handleMove = (e) => {
+      const rect = border.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(border, {
+        rotateY: x / 12,
+        rotateX: -y / 12,
+        scale: 1.04,
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    };
+    const handleLeave = () => {
+      gsap.to(border, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: 'elastic.out(1,0.5)' });
+    };
+    border.addEventListener('mousemove', handleMove);
+    border.addEventListener('mouseleave', handleLeave);
+    return () => {
+      border.removeEventListener('mousemove', handleMove);
+      border.removeEventListener('mouseleave', handleLeave);
+    };
+  }, []);
+
   return (
     <section className="hero fade-in" id="hero">
       <div className="hero__wrapper">
-        <div className="hero__image-container animated-border">
+        <div className="hero__image-container animated-border" ref={borderRef}>
           <img
             className="hero__image"
+            ref={imageRef}
             src="https://media.licdn.com/dms/image/v2/D4D03AQE5evBJbAI31Q/profile-displayphoto-shrink_400_400/B4DZU1.lpWG8Ag-/0/1740367354901?e=1752105600&v=beta&t=h8j2I0h4KbvV6IlYO5GuRPYlHWNdnCJNqZwK4X7yA6M"
             alt="Your Name"
           />
