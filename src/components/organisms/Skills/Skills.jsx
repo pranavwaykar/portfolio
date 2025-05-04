@@ -1,88 +1,152 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaReact, FaNodeJs, FaPython, FaJava, FaDocker, FaAws } from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiPostgresql } from 'react-icons/si';
+import { 
+  FaReact, FaVuejs, FaHtml5, FaCss3Alt, FaSass, 
+  FaJs, FaNodeJs, FaGithub, FaGitlab, FaBootstrap 
+} from 'react-icons/fa';
+import { 
+  SiTypescript, SiJquery, SiMongodb, SiTailwindcss, 
+  SiMantine 
+} from 'react-icons/si';
 import './Skills.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Professional color palette for technology groups
+const colors = {
+  frameworks: '#2C5282', // Deep blue for React, Vue, HTML
+  styling: '#805AD5',    // Rich purple for CSS, SASS
+  scripting: '#38A169',  // Forest green for JS, TS, jQuery
+  backend: '#D69E2E',    // Warm gold for Node, MongoDB
+  ui: '#3182CE',         // Sky blue for Tailwind, Bootstrap, Mantine
+  vcs: '#4A5568'         // Slate gray for Github, Gitlab
+};
+
 const skills = [
   {
-    name: 'Frontend',
-    color: '#61DAFB',
+    name: 'Frontend Frameworks',
+    color: colors.frameworks,
     items: [
       {
         name: 'React',
         level: 95,
         icon: <FaReact />,
-        description: 'Expert in React ecosystem including Next.js, Redux, and React Query'
+        description: 'Advanced React development with Redux, Context API, and Hooks'
+      },
+      {
+        name: 'Vue',
+        level: 85,
+        icon: <FaVuejs />,
+        description: 'Vue.js development with Vuex and Composition API'
+      },
+      {
+        name: 'HTML5',
+        level: 90,
+        icon: <FaHtml5 />,
+        description: 'Semantic HTML with accessibility best practices'
+      }
+    ]
+  },
+  {
+    name: 'Styling',
+    color: colors.styling,
+    items: [
+      {
+        name: 'CSS3',
+        level: 92,
+        icon: <FaCss3Alt />,
+        description: 'Advanced CSS with Flexbox, Grid, and Animations'
+      },
+      {
+        name: 'SASS',
+        level: 88,
+        icon: <FaSass />,
+        description: 'SASS/SCSS with mixins, functions, and architecture'
+      }
+    ]
+  },
+  {
+    name: 'Scripting',
+    color: colors.scripting,
+    items: [
+      {
+        name: 'JavaScript',
+        level: 95,
+        icon: <FaJs />,
+        description: 'Modern JavaScript with ES6+ features and async programming'
       },
       {
         name: 'TypeScript',
         level: 90,
         icon: <SiTypescript />,
-        description: 'Advanced TypeScript with focus on type safety and best practices'
+        description: 'TypeScript with advanced types and best practices'
+      },
+      {
+        name: 'jQuery',
+        level: 85,
+        icon: <SiJquery />,
+        description: 'jQuery for DOM manipulation and legacy systems'
       }
     ]
   },
   {
     name: 'Backend',
-    color: '#68A063',
+    color: colors.backend,
     items: [
       {
         name: 'Node.js',
         level: 92,
         icon: <FaNodeJs />,
-        description: 'Building scalable APIs and real-time applications'
+        description: 'Node.js with Express and RESTful APIs'
       },
-      {
-        name: 'Python',
-        level: 88,
-        icon: <FaPython />,
-        description: 'Data processing and backend development with Django/FastAPI'
-      },
-      {
-        name: 'Java',
-        level: 85,
-        icon: <FaJava />,
-        description: 'Enterprise applications and microservices'
-      }
-    ]
-  },
-  {
-    name: 'Infrastructure',
-    color: '#2496ED',
-    items: [
-      {
-        name: 'Docker',
-        level: 88,
-        icon: <FaDocker />,
-        description: 'Container orchestration and deployment automation'
-      },
-      {
-        name: 'AWS',
-        level: 85,
-        icon: <FaAws />,
-        description: 'Cloud infrastructure and serverless architecture'
-      }
-    ]
-  },
-  {
-    name: 'Database',
-    color: '#4DB33D',
-    items: [
       {
         name: 'MongoDB',
-        level: 90,
+        level: 88,
         icon: <SiMongodb />,
-        description: 'NoSQL database design and optimization'
+        description: 'MongoDB with Mongoose ODM and aggregation pipelines'
+      }
+    ]
+  },
+  {
+    name: 'UI Frameworks',
+    color: colors.ui,
+    items: [
+      {
+        name: 'Tailwind',
+        level: 90,
+        icon: <SiTailwindcss />,
+        description: 'Tailwind CSS with custom configurations'
       },
       {
-        name: 'PostgreSQL',
+        name: 'Bootstrap',
         level: 88,
-        icon: <SiPostgresql />,
-        description: 'Complex queries and database optimization'
+        icon: <FaBootstrap />,
+        description: 'Bootstrap with custom theming and components'
+      },
+      {
+        name: 'Mantine',
+        level: 85,
+        icon: <SiMantine />,
+        description: 'Mantine UI with custom hooks and components'
+      }
+    ]
+  },
+  {
+    name: 'Version Control',
+    color: colors.vcs,
+    items: [
+      {
+        name: 'GitHub',
+        level: 92,
+        icon: <FaGithub />,
+        description: 'GitHub with Actions, PR workflows, and collaboration'
+      },
+      {
+        name: 'GitLab',
+        level: 90,
+        icon: <FaGitlab />,
+        description: 'GitLab with CI/CD pipelines and DevOps practices'
       }
     ]
   }
@@ -148,54 +212,216 @@ const Skills = () => {
     const drawOrb = (orb) => {
       ctx.save();
       
-      // Draw orb background
-      ctx.beginPath();
       const radius = orb.radius + (orb.expandedRadius - orb.radius) * orb.expandProgress;
-      ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = orb.color;
-      ctx.fill();
-      ctx.closePath();
+      const time = Date.now() * 0.001; // For animated effects
+      
+      // Create chromatic aberration effect
+      const drawChromatic = (offsetX, offsetY, color) => {
+        const sphereGradient = ctx.createRadialGradient(
+          orb.x - radius * 0.3 + offsetX, 
+          orb.y - radius * 0.3 + offsetY, 
+          radius * 0.1,
+          orb.x + offsetX, 
+          orb.y + offsetY, 
+          radius
+        );
+        sphereGradient.addColorStop(0, `${color}22`);
+        sphereGradient.addColorStop(0.8, `${color}11`);
+        sphereGradient.addColorStop(1, `${color}00`);
 
-      // Draw orb content
+        ctx.beginPath();
+        ctx.arc(orb.x + offsetX, orb.y + offsetY, radius, 0, Math.PI * 2);
+        ctx.fillStyle = sphereGradient;
+        ctx.fill();
+      };
+
+      // Draw chromatic layers
+      drawChromatic(-2, -2, '#FF0000'); // Red layer
+      drawChromatic(2, 2, '#0000FF');   // Blue layer
+
+      // Main sphere with enhanced gradient
+      const sphereGradient = ctx.createRadialGradient(
+        orb.x - radius * 0.3, 
+        orb.y - radius * 0.3, 
+        radius * 0.1,
+        orb.x, 
+        orb.y, 
+        radius
+      );
+      
+      // Create dynamic color variations
+      const baseColor = orb.color;
+      const lighterColor = baseColor.replace('rgb', 'rgba').replace(')', ', 0.9)');
+      const darkerColor = baseColor.replace('rgb', 'rgba').replace(')', ', 0.7)');
+      
+      sphereGradient.addColorStop(0, lighterColor);
+      sphereGradient.addColorStop(0.5, baseColor);
+      sphereGradient.addColorStop(1, darkerColor);
+
+      // Draw main sphere with subtle animation
+      ctx.beginPath();
+      ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = sphereGradient;
+      ctx.fill();
+
+      // Add inner glow
+      const innerGlow = ctx.createRadialGradient(
+        orb.x, orb.y, radius * 0.5,
+        orb.x, orb.y, radius
+      );
+      innerGlow.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      innerGlow.addColorStop(0.8, `${baseColor}33`);
+      innerGlow.addColorStop(1, `${baseColor}66`);
+      
+      ctx.beginPath();
+      ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = innerGlow;
+      ctx.fill();
+
+      // Enhanced depth effect
+      const depthGradient = ctx.createRadialGradient(
+        orb.x, orb.y + radius * 0.5, 0,
+        orb.x, orb.y + radius * 0.5, radius * 1.2
+      );
+      depthGradient.addColorStop(0, 'rgba(0, 0, 0, 0.4)');
+      depthGradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.1)');
+      depthGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      
+      ctx.beginPath();
+      ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = depthGradient;
+      ctx.fill();
+
+      // Animated highlight effect
+      const highlightAngle = time % (Math.PI * 2);
+      const highlightX = orb.x + Math.cos(highlightAngle) * radius * 0.3;
+      const highlightY = orb.y + Math.sin(highlightAngle) * radius * 0.3;
+      
+      const highlight = ctx.createRadialGradient(
+        highlightX, highlightY, 0,
+        highlightX, highlightY, radius * 0.8
+      );
+      highlight.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+      highlight.addColorStop(0.1, 'rgba(255, 255, 255, 0.3)');
+      highlight.addColorStop(0.2, 'rgba(255, 255, 255, 0)');
+
+      ctx.beginPath();
+      ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = highlight;
+      ctx.fill();
+
+      // Secondary highlights
+      const smallHighlight = ctx.createRadialGradient(
+        orb.x + radius * 0.2, orb.y + radius * 0.2, 0,
+        orb.x + radius * 0.2, orb.y + radius * 0.2, radius * 0.3
+      );
+      smallHighlight.addColorStop(0, 'rgba(255, 255, 255, 0.6)');
+      smallHighlight.addColorStop(0.3, 'rgba(255, 255, 255, 0.2)');
+      smallHighlight.addColorStop(0.5, 'rgba(255, 255, 255, 0)');
+
+      ctx.beginPath();
+      ctx.arc(orb.x, orb.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = smallHighlight;
+      ctx.fill();
+
+      // Enhanced outer glow when hovered or active
+      if (orb.hovered || orb.expandProgress > 0) {
+        const pulseIntensity = Math.sin(time * 4) * 0.1 + 0.9;
+        const glowSize = radius * (1 + orb.expandProgress * 0.5) * pulseIntensity;
+        
+        const glow = ctx.createRadialGradient(
+          orb.x, orb.y, radius * 0.9,
+          orb.x, orb.y, glowSize
+        );
+        glow.addColorStop(0, `${baseColor}44`);
+        glow.addColorStop(0.5, `${baseColor}22`);
+        glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+
+        // Add subtle ripple effect
+        const rippleRadius = radius * (1.2 + Math.sin(time * 3) * 0.1);
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, rippleRadius, 0, Math.PI * 2);
+        ctx.strokeStyle = `${baseColor}22`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      // Draw content with enhanced styling
       if (orb.expandProgress > 0.5) {
-        // Draw expanded orb content
-        ctx.fillStyle = 'white';
+        // Create backdrop blur effect simulation
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, radius * 0.9, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.fill();
+
+        // Draw expanded orb content with enhanced styling
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Draw skill name
-        ctx.font = 'bold 16px Arial';
+        // Draw skill name with enhanced shadow
+        ctx.font = `bold ${16 + orb.expandProgress * 4}px Arial`;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+        ctx.shadowBlur = 8;
+        ctx.shadowOffsetY = 2;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
         ctx.fillText(orb.skill.name, orb.x, orb.y - radius * 0.3);
         
-        // Draw level
-        ctx.font = '14px Arial';
-        ctx.fillText(`${orb.skill.level}%`, orb.x, orb.y);
+        // Reset shadow
+        ctx.shadowColor = 'transparent';
         
-        // Draw progress bar
+        // Draw level with animation
+        const levelProgress = orb.expandProgress * orb.skill.level;
+        ctx.font = '14px Arial';
+        ctx.fillText(`${Math.round(levelProgress)}%`, orb.x, orb.y);
+        
+        // Enhanced progress bar with glass effect
         const barWidth = radius * 1.2;
         const barHeight = 4;
         const barY = orb.y + radius * 0.2;
         
-        // Background
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+        // Bar background with glass effect
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
         ctx.fillRect(orb.x - barWidth/2, barY, barWidth, barHeight);
         
-        // Progress
-        ctx.fillStyle = 'white';
+        // Progress bar with enhanced gradient
+        const barGradient = ctx.createLinearGradient(
+          orb.x - barWidth/2, barY,
+          orb.x + barWidth/2, barY
+        );
+        barGradient.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+        barGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.7)');
+        barGradient.addColorStop(1, 'rgba(255, 255, 255, 0.95)');
+        
+        ctx.fillStyle = barGradient;
         ctx.fillRect(
           orb.x - barWidth/2,
           barY,
-          barWidth * (orb.skill.level/100),
+          barWidth * (levelProgress/100),
           barHeight
         );
 
-        // Draw description
+        // Add subtle bar highlight
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.fillRect(
+          orb.x - barWidth/2,
+          barY,
+          barWidth * (levelProgress/100),
+          barHeight/2
+        );
+
+        // Draw description with enhanced text wrapping and styling
         ctx.font = '12px Arial';
         const words = orb.skill.description.split(' ');
         let line = '';
         let lineY = orb.y + radius * 0.4;
         const maxWidth = radius * 1.5;
 
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
         words.forEach(word => {
           const testLine = line + word + ' ';
           const metrics = ctx.measureText(testLine);
@@ -210,27 +436,16 @@ const Skills = () => {
         });
         ctx.fillText(line, orb.x, lineY);
       } else {
-        // Draw regular orb content
-        ctx.fillStyle = 'white';
+        // Draw regular orb content with enhanced styling
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
         ctx.font = '16px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+        ctx.shadowBlur = 8;
+        ctx.shadowOffsetY = 2;
         ctx.fillText(orb.skill.name, orb.x, orb.y);
-      }
-
-      // Draw glow effect
-      if (orb.hovered || orb.expandProgress > 0) {
-        ctx.beginPath();
-        const gradient = ctx.createRadialGradient(
-          orb.x, orb.y, 0,
-          orb.x, orb.y, radius * 2
-        );
-        gradient.addColorStop(0, `${orb.color}33`);
-        gradient.addColorStop(1, 'transparent');
-        ctx.fillStyle = gradient;
-        ctx.arc(orb.x, orb.y, radius * 2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.closePath();
+        ctx.shadowColor = 'transparent';
       }
 
       ctx.restore();
