@@ -2,7 +2,7 @@
 @use '../../../styles/mixins' as *;
 
 .hero {
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,32 +10,175 @@
   background: linear-gradient(120deg, #f8fafc 0%, #f3f6fa 100%);
   text-align: center;
 
-  &__content {
-    max-width: 600px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
+    @include respond-to(md) {
+      flex-direction: row;
+      text-align: left;
+      gap: $spacing-xxl;
+      justify-content: center;
+    }
+  }
+
+  &__image-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    @include respond-to(md) {
+      margin-bottom: 0;
+    }
+  }
+
+  .animated-border {
+    background: conic-gradient(
+      #3498db, #2c3e50, #e74c3c, #3498db 90deg, #2c3e50 180deg, #e74c3c 270deg, #3498db 360deg
+    );
+    padding: 4px;
+    border-radius: 50%;
+    animation: spin 3.5s linear infinite;
+    width: 152px;
+    height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  &__image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+    border: 4px solid $white;
+    background: $light-gray;
+    transition: transform 0.3s;
+    z-index: 1;
+    &:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+  }
+
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: $spacing-lg;
+    @include respond-to(md) {
+      align-items: flex-start;
+    }
   }
 
   &__title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: $primary-color;
     margin-bottom: $spacing-sm;
+    line-height: 1.1;
+    @include respond-to(md) {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__highlight {
+    color: $secondary-color;
+    background: linear-gradient(90deg, $secondary-color 0%, $primary-color 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   &__subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: $secondary-color;
     margin-bottom: $spacing-md;
+    min-height: 2.2rem;
+    display: flex;
+    align-items: center;
+    @include respond-to(md) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .typewriter {
+    font-family: inherit;
+    font-weight: 600;
+    color: $secondary-color;
+    letter-spacing: 0.01em;
+    white-space: pre;
+  }
+  .typewriter-cursor {
+    color: $secondary-color;
+    font-weight: 700;
+    font-size: 1.3em;
+    animation: blink 1s steps(1) infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   &__bio {
     color: $dark-gray;
     font-size: $font-size-lg;
     margin-bottom: $spacing-lg;
+    max-width: 400px;
+    @include respond-to(md) {
+      max-width: 500px;
+    }
   }
+
+  &__socials {
+    display: flex;
+    gap: $spacing-lg;
+    margin-top: $spacing-md;
+    justify-content: center;
+    @include respond-to(md) {
+      justify-content: flex-start;
+    }
+  }
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1.2rem;
+    &:hover {
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.16);
+    }
+    svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInHero 1.2s ease 0.1s forwards;
+}
+@keyframes fadeInHero {
+  to { opacity: 1; }
 }
