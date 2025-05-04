@@ -2,7 +2,7 @@
 @use '../../../styles/mixins' as *;
 
 .skills {
-  padding: $spacing-xxl 0;
+  padding: $spacing-xxl $spacing-lg;
   background: none;
 
   &__heading {

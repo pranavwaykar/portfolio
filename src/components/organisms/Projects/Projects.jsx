@@ -5,7 +5,7 @@ import './Projects.scss';
 const Projects = () => {
   return (
     <section className="projects" id="projects">
-      <div className="container">
+      <div className="">
         <h2>Featured Projects</h2>
         <div className="projects__grid">
           {PROJECTS.map((project, index) => (

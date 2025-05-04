@@ -2,7 +2,7 @@
 @use '../../../styles/mixins' as *;
 
 .experience {
-  padding: $spacing-xxl 0;
+  padding: $spacing-xxl $spacing-lg;
   background: none;
   display: flex
   ;
@@ -34,7 +34,7 @@
     margin-left: -1rem;
     position: relative;
     min-width: 220px;
-    max-width: 600px;
+    // max-width: 600px;
     @include respond-to(md) {
       padding: $spacing-xl $spacing-xxl;
     }
