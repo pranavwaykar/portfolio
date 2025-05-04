@@ -62,59 +62,171 @@ const Hero = () => {
   const borderRef = useRef(null);
   const imageRef = useRef(null);
   const rippleRef = useRef(null);
+  const contentRef = useRef(null);
+  const socialsRef = useRef(null);
+  const backgroundRef = useRef(null);
   const pulseTween = useRef(null);
   const colorTween = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Handle mouse move for parallax effect
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    const x = (clientX - innerWidth / 2) / innerWidth;
+    const y = (clientY - innerHeight / 2) / innerHeight;
+    setMousePosition({ x, y });
+
+    // Add subtle rotation to the background gradient
+    if (backgroundRef.current) {
+      const rotateX = y * 10; // -5 to 5 degrees
+      const rotateY = x * 10; // -5 to 5 degrees
+      backgroundRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+  };
 
   // GSAP animation on mount
   useEffect(() => {
-    gsap.fromTo(
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    // Initial animations
+    tl.fromTo(
       borderRef.current,
-      { scale: 0.7, boxShadow: '0 0 0 0 rgba(52,152,219,0.0)' },
-      { scale: 1, boxShadow: '0 0 32px 8px rgba(52,152,219,0.15)', duration: 1.2, ease: 'elastic.out(1, 0.6)' }
-    );
-    gsap.fromTo(
+      { scale: 0.7, opacity: 0, rotate: -180 },
+      { scale: 1, opacity: 1, rotate: 0, duration: 1.4, ease: 'elastic.out(1, 0.5)' }
+    )
+    .fromTo(
       imageRef.current,
-      { scale: 0.7, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.2, delay: 0.2, ease: 'elastic.out(1, 0.6)' }
+      { scale: 0.7, opacity: 0, filter: 'blur(10px)' },
+      { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'elastic.out(1, 0.5)' },
+      '-=1'
+    )
+    .fromTo(
+      contentRef.current.children,
+      { y: 30, opacity: 0, filter: 'blur(5px)' },
+      { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, stagger: 0.2 },
+      '-=0.4'
+    )
+    .fromTo(
+      socialsRef.current.children,
+      { scale: 0, opacity: 0, rotate: -45 },
+      { 
+        scale: 1, 
+        opacity: 1, 
+        rotate: 0,
+        duration: 0.6, 
+        stagger: 0.1, 
+        ease: 'back.out(2)',
+        onComplete: () => {
+          // Add hover animation to social icons
+          gsap.to(socialsRef.current.children, {
+            y: -5,
+            duration: 1.5,
+            stagger: 0.2,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut'
+          });
+        }
+      },
+      '-=0.4'
     );
-    // Pulse ripple animation
+
+    // Continuous floating animation for the profile image
+    gsap.to(borderRef.current, {
+      y: '15px',
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut'
+    });
+
+    // Pulse ripple animation with scale and color change
     pulseTween.current = gsap.to(rippleRef.current, {
-      scale: 2.2,
+      scale: 1.8,
       opacity: 0,
       repeat: -1,
-      duration: 1.8,
+      duration: 2,
       ease: 'power1.out',
       yoyo: false,
-      delay: 0.2,
       onRepeat: () => {
-        gsap.set(rippleRef.current, { scale: 1, opacity: 0.5 });
+        gsap.set(rippleRef.current, { 
+          scale: 1, 
+          opacity: 0.5,
+          background: `radial-gradient(
+            circle,
+            rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.1) 0%,
+            rgba(22,36,71,0.1) 50%,
+            transparent 70%
+          )`
+        });
       }
     });
+
+    // Parallax effect on mouse move
+    window.addEventListener('mousemove', handleMouseMove);
+
     return () => {
-      pulseTween.current && pulseTween.current.kill();
-      colorTween.current && colorTween.current.kill();
+      pulseTween.current?.kill();
+      colorTween.current?.kill();
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  // Apply parallax effect
+  useEffect(() => {
+    gsap.to(borderRef.current, {
+      x: mousePosition.x * 30,
+      y: mousePosition.y * 30,
+      rotation: mousePosition.x * 10,
+      duration: 1,
+      ease: 'power2.out'
+    });
+    gsap.to(contentRef.current, {
+      x: mousePosition.x * -20,
+      y: mousePosition.y * -20,
+      duration: 1,
+      ease: 'power2.out'
+    });
+  }, [mousePosition]);
 
   // On hover: speed up pulse, shift border color, scale image
   useEffect(() => {
     const border = borderRef.current;
-    const ripple = rippleRef.current;
     const img = imageRef.current;
+    
     const handleEnter = () => {
-      pulseTween.current && pulseTween.current.timeScale(2.2);
-      colorTween.current = gsap.to(border, {
-        background: 'conic-gradient(#162447 0deg 60deg, #1a2240 75deg, #23214a 90deg, #3a1a3a 110deg, #531012 130deg, #7a1a2c 150deg,rgb(125, 2, 6) 180deg 360deg)',
-        duration: 0.7,
-        ease: 'power1.inOut',
+      pulseTween.current?.timeScale(2);
+      gsap.to(border, {
+        background: 'conic-gradient(from 180deg, #162447 0deg, #1a2240 90deg, #23214a 180deg, #3a1a3a 270deg, #162447 360deg)',
+        scale: 1.05,
+        duration: 0.4,
+        ease: 'power2.out'
       });
-      gsap.to(img, { scale: 1.08, boxShadow: '0 0 32px 8px rgba(52,152,219,0.18)', duration: 0.4, ease: 'power2.out' });
+      gsap.to(img, { 
+        scale: 1.1,
+        filter: 'brightness(1.1)',
+        duration: 0.4,
+        ease: 'power2.out'
+      });
     };
+
     const handleLeave = () => {
-      pulseTween.current && pulseTween.current.timeScale(1);
-      colorTween.current && colorTween.current.reverse();
-      gsap.to(img, { scale: 1, boxShadow: '0 0 0 0 rgba(52,152,219,0.0)', duration: 0.6, ease: 'elastic.out(1,0.5)' });
+      pulseTween.current?.timeScale(1);
+      gsap.to(border, {
+        background: 'conic-gradient(from 180deg, #162447 0deg, #b31217 180deg, #162447 360deg)',
+        scale: 1,
+        duration: 0.6,
+        ease: 'elastic.out(1,0.5)'
+      });
+      gsap.to(img, {
+        scale: 1,
+        filter: 'brightness(1)',
+        duration: 0.6,
+        ease: 'elastic.out(1,0.5)'
+      });
     };
+
     border.addEventListener('mouseenter', handleEnter);
     border.addEventListener('mouseleave', handleLeave);
     return () => {
@@ -125,6 +237,10 @@ const Hero = () => {
 
   return (
     <section className="hero fade-in" id="hero">
+      <div className="hero__background" ref={backgroundRef}>
+        <div className="hero__gradient"></div>
+        <div className="hero__particles"></div>
+      </div>
       <div className="hero__wrapper">
         <div className="hero__image-container animated-border" ref={borderRef}>
           <div className="hero__ripple" ref={rippleRef}></div>
@@ -137,7 +253,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        <div className="hero__content">
+        <div className="hero__content" ref={contentRef}>
           <h1 className="hero__title">Hi, I'm <span className="hero__highlight">Your Name</span></h1>
           <h2 className="hero__subtitle">
             <span className="typewriter">{subtitle}</span>
@@ -149,7 +265,7 @@ const Hero = () => {
           <Button variant="primary" size="large" onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}>
             Contact Me
           </Button>
-          <div className="hero__socials">
+          <div className="hero__socials" ref={socialsRef}>
             {socials.map((s) => (
               <a
                 key={s.label}
