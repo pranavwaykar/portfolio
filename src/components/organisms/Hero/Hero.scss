@@ -1,0 +1,41 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xxl $spacing-md $spacing-xl $spacing-md;
+  background: linear-gradient(120deg, #f8fafc 0%, #f3f6fa 100%);
+  text-align: center;
+
+  &__content {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-lg;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $secondary-color;
+    margin-bottom: $spacing-md;
+  }
+
+  &__bio {
+    color: $dark-gray;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-lg;
+  }
+}

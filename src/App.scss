@@ -1,0 +1,47 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+body {
+  background: linear-gradient(120deg, #f8fafc 0%, #f3f6fa 100%);
+}
+
+.header {
+  text-align: center;
+  padding: $spacing-xxl 0 $spacing-xl 0;
+  margin-bottom: $spacing-xl;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  h1 {
+    margin-bottom: $spacing-md;
+    font-weight: 800;
+    color: $primary-color;
+  }
+  p {
+    color: $dark-gray;
+    font-size: $font-size-lg;
+    font-weight: 400;
+  }
+}
+
+.projects {
+  max-width: 900px;
+  margin: 0 auto;
+  &__grid {
+    display: grid;
+    gap: $spacing-xxl;
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+    }
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  h2 {
+    text-align: left;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: $spacing-lg;
+  }
+} 

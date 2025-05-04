@@ -1,0 +1,59 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.contact {
+  padding: $spacing-xxl 0;
+  background: none;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__heading {
+    text-align: left;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: $spacing-xl;
+    font-size: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__input, &__textarea {
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    border: 1px solid #e0e0e0;
+    font-size: $font-size-base;
+    font-family: inherit;
+    resize: none;
+    transition: border 0.2s;
+    &:focus {
+      border: 1.5px solid $secondary-color;
+      outline: none;
+    }
+  }
+  &__textarea {
+    min-height: 120px;
+  }
+  &__button {
+    @include button-primary;
+    width: 100%;
+    font-size: $font-size-lg;
+    font-weight: 600;
+    margin-top: $spacing-sm;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    color: $dark-gray;
+    font-size: $font-size-base;
+    a {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+}
