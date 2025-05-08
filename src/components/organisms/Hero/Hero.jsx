@@ -248,8 +248,8 @@ const Hero = () => {
             <img
               className="hero__image"
               ref={imageRef}
-              src="https://media.licdn.com/dms/image/v2/D4D03AQE5evBJbAI31Q/profile-displayphoto-shrink_400_400/B4DZU1.lpWG8Ag-/0/1740367354901?e=1752105600&v=beta&t=h8j2I0h4KbvV6IlYO5GuRPYlHWNdnCJNqZwK4X7yA6M"
-              alt="Your Name"
+              src="https://media.licdn.com/dms/image/v2/D4D03AQEqOqPbcUtK6g/profile-displayphoto-shrink_800_800/B4DZauQOeoG4Ac-/0/1746680212371?e=1752105600&v=beta&t=52YL9I6J4L-cEovImnLcyZxVb-lO5fvTw9ytxOjRE0Q"
+              alt="Pranav"
             />
           </div>
         </div>
