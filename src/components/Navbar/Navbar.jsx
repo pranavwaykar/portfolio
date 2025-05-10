@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const logoRef = useRef(null);
+  const letterRefs = useRef([]);
   
   const menuItems = [
     { id: 'hero', label: 'HOME' },
@@ -14,15 +18,79 @@ const Navbar = () => {
     { id: 'contact', label: 'CONTACT' }
   ];
 
+  // Initialize premium logo animation
+  useEffect(() => {
+    if (!logoRef.current) return;
+    
+    // Create letter elements
+    const text = "PRANAV";
+    logoRef.current.innerHTML = '';
+    
+    // Letter wrapper
+    const letterWrapper = document.createElement('div');
+    letterWrapper.className = 'letter-wrapper';
+    
+    // Create individual letters
+    [...text].forEach((char, index) => {
+      const letter = document.createElement('span');
+      letter.className = 'logo-letter';
+      letter.textContent = char;
+      letterWrapper.appendChild(letter);
+      letterRefs.current.push(letter);
+    });
+    
+    logoRef.current.appendChild(letterWrapper);
+    
+    // Animate line
+    const line = document.createElement('div');
+    line.className = 'logo-line';
+    logoRef.current.appendChild(line);
+    
+    // Initial animations
+    gsap.set(line, { width: 0 });
+    gsap.set(letterRefs.current, { opacity: 0, y: 20 });
+    
+    // Timeline
+    const tl = gsap.timeline();
+    
+    // Animate letters in
+    tl.to(letterRefs.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      stagger: 0.05,
+      ease: "power2.out"
+    });
+    
+    // Animate line
+    tl.to(line, {
+      width: "100%",
+      duration: 0.7,
+      ease: "power2.inOut"
+    }, "-=0.2");
+    
+    // Subtle continuous animation
+    gsap.to(line, {
+      boxShadow: "0 1px 6px rgba(23, 92, 230, 0.6)",
+      repeat: -1,
+      yoyo: true,
+      duration: 1.5,
+      ease: "sine.inOut"
+    });
+    
+    return () => {
+      tl.kill();
+      gsap.killTweensOf(line);
+      gsap.killTweensOf(letterRefs.current);
+    };
+  }, []);
+
+  // Scroll handling
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
+      // Update active section
       const sections = menuItems.map(item => item.id);
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -51,11 +119,13 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container-nav">
-        {/* Logo */}
-        <div className="navbar__brand" onClick={() => handleMenuClick('hero')}>
-          <div className="navbar__logo">PW</div>
-        </div>
+      <div className="container">
+        {/* Premium Logo */}
+        <div 
+          className="navbar__brand" 
+          onClick={() => handleMenuClick('hero')}
+          ref={logoRef}
+        ></div>
         
         {/* Desktop Menu */}
         <div className="navbar__menu">
@@ -83,7 +153,7 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       <div className={`navbar__mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         {menuItems.map(item => (
           <div 
