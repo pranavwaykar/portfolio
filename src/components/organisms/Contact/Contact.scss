@@ -147,5 +147,9 @@
     &__form {
       grid-template-columns: 1fr;
     }
+
+    &__info-section {
+      display: none;
+    }
   }
 }
