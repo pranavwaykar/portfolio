@@ -9,7 +9,7 @@ export const PROJECTS = [
   },
   {
     title: 'URL Optimization',
-    description: 'A modern, responsive portfolio website built with React and SASS, following Atomic Design principles.',
+    description: 'A URL shortening application that transforms long URLs into compact, shareable links with analytics tracking.',
     image: 'https://private-user-images.githubusercontent.com/90698028/442494446-c60fc20d-19a1-4057-8e10-0c37e7ec10bf.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY5NTkyNzgsIm5iZiI6MTc0Njk1ODk3OCwicGF0aCI6Ii85MDY5ODAyOC80NDI0OTQ0NDYtYzYwZmMyMGQtMTlhMS00MDU3LThlMTAtMGMzN2U3ZWMxMGJmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTExVDEwMjI1OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTBlZTNkMmY4MzI2ZmMzOGU0OTdmZDRmMjJhZWQ0YTQ2YjU2OTIwNWFhZTllYjY2Yzc5OTMzMGQzODA4YzhiYTImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ETQNbVNVdlh74zapCz48fZoOY2KTiP0e0kWxzGNeZWc',
     technologies: ['React', 'SASS'],
     githubUrl: 'https://github.com/pranavwaykar/url_shortening',
@@ -17,7 +17,7 @@ export const PROJECTS = [
   },
   {
     title: 'On Road Remote vehicle Assistance',
-    description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
+    description: 'An emergency vehicle assistance platform that connects stranded motorists with nearby mechanics and service providers in real-time.',
     image: 'https://private-user-images.githubusercontent.com/90698028/442494836-b35a54a3-a860-48bd-b2a5-9454e05dd049.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY5NTk2MTEsIm5iZiI6MTc0Njk1OTMxMSwicGF0aCI6Ii85MDY5ODAyOC80NDI0OTQ4MzYtYjM1YTU0YTMtYTg2MC00OGJkLWIyYTUtOTQ1NGUwNWRkMDQ5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTExVDEwMjgzMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTA5MGI5NTYyNDUzNzYwMjRmYWFkNTM5NGEzNjZhYThiOTBiMjBiOGY1YjU2NmVkMzdiMzc4MGZiMmY1NjM5NTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.8l1Le9W_UhaLIQHt8EbjhHfDR6Asu7FvwNWucMDUS5o',
     technologies: ['Java', 'HTML', 'CSS', 'JavaScript'],
     githubUrl: 'https://github.com/pranavwaykar/Remote-Vehicle-Assistant',
@@ -25,15 +25,15 @@ export const PROJECTS = [
   },
   {
     title: 'NASA Stellar',
-    description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
+    description: 'An interactive space exploration application showcasing NASA imagery and data, allowing users to browse celestial objects and astronomical discoveries.',
     image: 'https://www.nasa.gov/wp-content/uploads/2025/04/roman-coresurveys-infographic.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Python'],
     githubUrl: 'https://github.com/pranavwaykar/NASA-Stellar',
     liveUrl: ''
   },
   {
     title: 'Real Estate Website',
-    description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
+    description: 'A comprehensive real estate platform featuring property listings, advanced search filters, and interactive maps for browsing available properties.',
     image: 'https://private-user-images.githubusercontent.com/90698028/442495167-bce8d3e7-5e20-4513-8ae2-1e93cd00e696.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY5NjAxMDQsIm5iZiI6MTc0Njk1OTgwNCwicGF0aCI6Ii85MDY5ODAyOC80NDI0OTUxNjctYmNlOGQzZTctNWUyMC00NTEzLThhZTItMWU5M2NkMDBlNjk2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTExVDEwMzY0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWEwNDc1N2M2YjUwYjVjODBiNjI2OWM4ODMxZjExYTU2NmQzMDA0YmY4YTIzZGM5YTkwODZjMTMzMjI2OTliZTUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.3Fl9igttBnRrnK1u7rfz9VFYnbz59U6Ogm7Zy2FIOPY',
     technologies: ['React', 'SASS', 'GSAP', 'Mantine'],
     githubUrl: 'https://github.com/pranavwaykar/gksyapi',
@@ -41,7 +41,7 @@ export const PROJECTS = [
   },
   {
     title: 'Friendity',
-    description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
+    description: 'A scientific friendship assessment platform that helps users understand and strengthen their relationships through anonymous surveys, personalized insights, and evidence-based recommendations.',
     image: 'https://private-user-images.githubusercontent.com/90698028/442495879-7306a0a8-b9f5-4371-b92b-b8eb46e8c50b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY5NjA3MDMsIm5iZiI6MTc0Njk2MDQwMywicGF0aCI6Ii85MDY5ODAyOC80NDI0OTU4NzktNzMwNmEwYTgtYjlmNS00MzcxLWI5MmItYjhlYjQ2ZThjNTBiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTExVDEwNDY0M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkxZWRjMTZhOThhMDNhNDNlNzk1M2RmNzA4MGRjNTIxNDYwZGIyNmNlMjZmNTg0MGE2NTA5NDA5NWRjMWE2NzUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UeAbPvsgxd2j35g4aD_q2Lf1UF1kM3G5vDzH4UqUANg',
     technologies: ['React', 'Tailwind'],
     githubUrl: 'https://github.com/pranavwaykar/frendity',
