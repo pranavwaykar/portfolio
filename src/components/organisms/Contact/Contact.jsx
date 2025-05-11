@@ -2,7 +2,7 @@ import './Contact.scss';
 
 const Contact = () => (
   <section className="contact" id="contact">
-    <h2 className="contact__heading">Contact</h2>
+    <h2 className="contact__heading">Contacts</h2>
     <form className="contact__form" onSubmit={e => e.preventDefault()}>
       <input className="contact__input" type="text" placeholder="Your Name" required />
       <input className="contact__input" type="email" placeholder="Your Email" required />

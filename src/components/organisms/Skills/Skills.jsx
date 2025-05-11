@@ -637,7 +637,7 @@ const Skills = () => {
     <section className="skills" ref={containerRef}>
       <canvas ref={canvasRef} className="skills__canvas" />
       <div className="skills__overlay">
-        <h2 className="skills__title">Skills & Expertise</h2>
+        <h2 className="skills__heading">Skills & Expertise</h2>
       </div>
     </section>
   );

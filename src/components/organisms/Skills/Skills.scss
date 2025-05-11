@@ -32,6 +32,26 @@
     }
   }
 
+  &__heading {
+    text-align: center;
+    color: $primary-color;
+    font-weight: 700;
+    margin-top: $spacing-xxxl;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    font-weight: 800;
+    font-size: 2.5rem;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #993333; // Burgundy/red color from Experience
+      margin: 15px auto 0;
+    }
+  }
+
   &__title {
     font-size: 3.5rem;
     font-weight: 800;

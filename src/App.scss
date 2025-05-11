@@ -6,8 +6,11 @@ body {
 }
 
 @media (min-width: 1080px) {
-  #projects, #contact {
-    padding: 6% !important;
+  #projects {
+    padding: 4% 6% !important;
+  }
+  #contact {
+    padding: 0 6% 4% 6% !important;
   }
 }
 

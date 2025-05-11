@@ -8,11 +8,23 @@
   // margin: 0 auto;
 
   &__heading {
-    text-align: left;
+    text-align: center;
     color: $primary-color;
     font-weight: 700;
-    margin-bottom: $spacing-xl;
+    margin-bottom: $spacing-xxxl;
     font-size: 2rem;
+    position: relative;
+    font-weight: 800;
+    font-size: 2.5rem;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #993333; // Burgundy/red color from Experience
+      margin: 15px auto 0;
+    }
   }
 
   &__form {
