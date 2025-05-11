@@ -51,10 +51,15 @@
     cursor: pointer;
     height: 150px;
 
-
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+      .arrow {
+        background: $secondary-color;
+        color: white;
+        transform: translateX(5px);
+      }
     }
 
     h3 {
@@ -78,11 +83,6 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-
-      &:hover {
-        background: $secondary-color;
-        color: white;
-      }
     }
   }
 
