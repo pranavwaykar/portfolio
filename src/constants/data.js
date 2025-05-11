@@ -26,7 +26,7 @@ export const PROJECTS = [
   {
     title: 'NASA Stellar',
     description: 'An interactive space exploration application showcasing NASA imagery and data, allowing users to browse celestial objects and astronomical discoveries.',
-    image: 'https://www.nasa.gov/wp-content/uploads/2025/04/roman-coresurveys-infographic.jpg',
+    image: 'https://fiu-original.b-cdn.net/fontsinuse.com/use-images/143/143668/143668.jpeg?filename=nasa1.jpg',
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     githubUrl: 'https://github.com/pranavwaykar/NASA-Stellar',
     liveUrl: ''
