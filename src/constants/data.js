@@ -27,7 +27,7 @@ export const PROJECTS = [
     title: 'NASA Stellar',
     description: 'An interactive space exploration application showcasing NASA imagery and data, allowing users to browse celestial objects and astronomical discoveries.',
     image: 'https://www.nasa.gov/wp-content/uploads/2025/04/roman-coresurveys-infographic.jpg',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Python'],
+    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     githubUrl: 'https://github.com/pranavwaykar/NASA-Stellar',
     liveUrl: ''
   },
@@ -41,7 +41,7 @@ export const PROJECTS = [
   },
   {
     title: 'Friendity',
-    description: 'A scientific friendship assessment platform that helps users understand and strengthen their relationships through anonymous surveys, personalized insights, and evidence-based recommendations.',
+    description: 'A social networking application that helps users connect with like-minded individuals based on shared interests and activities.',
     image: 'https://private-user-images.githubusercontent.com/90698028/442495879-7306a0a8-b9f5-4371-b92b-b8eb46e8c50b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY5NjA3MDMsIm5iZiI6MTc0Njk2MDQwMywicGF0aCI6Ii85MDY5ODAyOC80NDI0OTU4NzktNzMwNmEwYTgtYjlmNS00MzcxLWI5MmItYjhlYjQ2ZThjNTBiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTExVDEwNDY0M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkxZWRjMTZhOThhMDNhNDNlNzk1M2RmNzA4MGRjNTIxNDYwZGIyNmNlMjZmNTg0MGE2NTA5NDA5NWRjMWE2NzUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UeAbPvsgxd2j35g4aD_q2Lf1UF1kM3G5vDzH4UqUANg',
     technologies: ['React', 'Tailwind'],
     githubUrl: 'https://github.com/pranavwaykar/frendity',
@@ -51,46 +51,28 @@ export const PROJECTS = [
 
 export const EXPERIENCES = [
   {
-    role: "Senior Frontend Developer",
-    company: "Tech Corp",
-    duration: "2022 - Present",
-    description: "Leading frontend development for enterprise applications using React, Next.js, and TypeScript. Improved application performance by 40% and implemented modern CI/CD practices."
+    role: "Software Engineer",
+    company: "Next Smart Move",
+    duration: "October 2023 - Present",
+    description: "Leading development of a Time Tracking Management system built that integrates time tracking, task management, and resource planning. The platform provides real-time visibility into project progress, resource allocation, and productivity metrics for stakeholders across the organization."
   },
   {
-    role: "Frontend Team Lead",
-    company: "Innovation Labs",
-    duration: "2021 - 2022",
-    description: "Led a team of 5 developers, architected scalable solutions, and introduced design systems that reduced development time by 30%."
+    role: "Software Engineer",
+    company: "Trinesis Technologies pvt ltd.",
+    duration: "December 2022 - September 2023",
+    description: "Collaborated with cross-platform teams like NAIX, achieving a 30% efficiency boost through frontend data extraction coordination. Implemented features including PDF highlight, statistical infographics, sentiment analysis, and AI chatbot. Pioneered development of Routing Orchestration and SMC module features while participating in code reviews."
   },
   {
-    role: "Full Stack Developer",
-    company: "Digital Solutions Inc",
-    duration: "2020 - 2021",
-    description: "Developed full-stack applications using React, Node.js, and MongoDB. Implemented real-time features and optimized database queries."
+    role: "Software Developer",
+    company: "Freelance",
+    duration: "July 2022 - December 2022",
+    description: "Developed intuitive features using JavaScript & Java, with critical bug fixes that decreased turnaround time by 4%. Worked with cross-platform teams to implement code enhancements for API Services integration in the LMM Module. Maintained client communication to ensure aligned iterations and improvements."
   },
   {
-    role: "UI Developer",
-    company: "Web Studio",
-    duration: "2019 - 2020",
-    description: "Created responsive and accessible interfaces with React and SCSS. Collaborated with designers to implement pixel-perfect designs."
-  },
-  {
-    role: "Frontend Developer",
-    company: "Creative Agency",
-    duration: "2018 - 2019",
-    description: "Built interactive web applications and marketing sites. Specialized in animations and micro-interactions using GSAP."
-  },
-  {
-    role: "Junior Web Developer",
-    company: "StartUp Hub",
-    duration: "2017 - 2018",
-    description: "Developed and maintained client websites. Worked with HTML5, CSS3, JavaScript, and WordPress."
-  },
-  {
-    role: "Web Development Intern",
-    company: "Tech Academy",
-    duration: "2017",
-    description: "Assisted in developing educational platforms. Learned modern web development practices and agile methodologies."
+    role: "D2AS Associate",
+    company: "Amazon",
+    duration: "February 2021 - June 2022",
+    description: "Specialized in troubleshooting and debugging for Amazon platforms, identifying and resolving user-reported issues. Achieved a 30% reduction in issue resolution time by implementing a restructured workflow for the issue-reporting portal."
   }
 ];
 
