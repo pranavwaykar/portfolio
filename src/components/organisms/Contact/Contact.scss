@@ -2,19 +2,18 @@
 @use '../../../styles/mixins' as *;
 
 .contact {
-  padding: $spacing-xxl $spacing-lg;
+  padding: $spacing-xxl 10px;
   background: none;
-  // max-width: 600px;
+  min-height: calc(100vh - 100px);
+  // max-width: 1200px;
   // margin: 0 auto;
 
   &__heading {
     text-align: center;
     color: $primary-color;
-    font-weight: 700;
-    margin-bottom: $spacing-xxxl;
-    font-size: 2rem;
-    position: relative;
     font-weight: 800;
+    margin-bottom: $spacing-xxxl;
+    position: relative;
     font-size: 2.5rem;
     
     &::after {
@@ -22,52 +21,131 @@
       display: block;
       width: 80px;
       height: 4px;
-      background-color: #993333; // Burgundy/red color from Experience
+      background-color: #993333;
       margin: 15px auto 0;
     }
   }
 
-  &__form {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-xxl;
+    margin-top: $spacing-xxl;
+  }
+
+  &__info-section {
     display: flex;
     flex-direction: column;
-    gap: $spacing-md;
-    margin-bottom: $spacing-lg;
+    // gap: $spacing-xl;
+    justify-content: space-between;
+  }
+
+  &__info-item {
+    background: $white;
+    padding: $spacing-lg;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 150px;
+
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    h3 {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: $dark-gray;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .arrow {
+      width: 40px;
+      height: 40px;
+      background: #f1f5f9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $secondary-color;
+        color: white;
+      }
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    background: $white;
+    padding: $spacing-xl;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
   }
 
   &__input, &__textarea {
-    padding: $spacing-md;
-    border-radius: $border-radius-md;
-    border: 1px solid #e0e0e0;
-    font-size: $font-size-base;
+    padding: $spacing-lg;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
     font-family: inherit;
     resize: none;
-    transition: border 0.2s;
+    transition: all 0.3s ease;
     background-color: $white;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+
     &:focus {
-      border: 1.5px solid $secondary-color;
       outline: none;
+      border-color: $secondary-color;
+      box-shadow: 0 0 0 3px rgba($secondary-color, 0.1);
     }
   }
+
   &__textarea {
-    min-height: 120px;
+    min-height: 150px;
   }
-  &__button {
-    @include button-primary;
-    width: 100%;
-    font-size: $font-size-lg;
-    font-weight: 600;
-    margin-top: $spacing-sm;
-    width: 15rem;
-  }
-  &__info {
+
+  &__button-wrapper {
+    grid-column: 1 / -1;
     display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-    color: $dark-gray;
-    font-size: $font-size-base;
-    a {
-      color: $secondary-color;
-      text-decoration: underline;
+    justify-content: flex-start;
+    margin-top: $spacing-md;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    &__container {
+      grid-template-columns: 1fr;
+    }
+
+    &__form {
+      grid-template-columns: 1fr;
     }
   }
 }
