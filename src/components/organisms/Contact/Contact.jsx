@@ -124,14 +124,28 @@ const Contact = () => {
                 { value: 'other', label: 'Other' }
               ]}
               required
-              styles={{
+              comboboxProps={{ transitionProps: { transition: 'pop', duration: 200 } }}
+              styles={(theme) => ({
                 root: { width: '100%' },
                 input: { 
                   height: '70px',
                   borderRadius: '4px',
                   fontSize: '16px',
                   paddingLeft: '15px'
-                }
+                },
+                // option: {
+                //   padding: '15px',
+                //   margin: '5px 0',
+                //   '&:hover': {
+                //     backgroundColor: theme.colors.gray[1]
+                //   }
+                // },
+                // dropdown: {
+                //   padding: '10px'
+                // }
+              })}
+              classNames={{
+                option: 'custom-contact-select-option'
               }}
             />
           </div>

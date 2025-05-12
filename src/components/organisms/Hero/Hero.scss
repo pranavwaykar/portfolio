@@ -408,3 +408,9 @@
     opacity: 0.8;
   }
 }
+
+@media (max-width: 768px) {
+  .hero__image-container {
+    top: 40px;
+  }
+}

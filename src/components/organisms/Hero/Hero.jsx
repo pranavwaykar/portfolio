@@ -260,7 +260,7 @@ const Hero = () => {
             <span className="typewriter-cursor">|</span>
           </h2>
           <p className="hero__bio">
-            I build beautiful, performant web apps with <b>React</b>, <b>JS</b>, and modern web tech.<br />Let's create something amazing together!
+            I build Amazfabawestun, performant web apps with <b>React</b>, <b>JS</b>, <b>TS</b> and many more such modern web tech.<br />Let's create something amazing together!
           </p>
           <Button variant="primary" size="large" onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}>
             Contact Me
