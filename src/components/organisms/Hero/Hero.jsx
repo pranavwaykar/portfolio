@@ -102,20 +102,10 @@ const Hero = () => {
       '-=1'
     )
     .fromTo(
-      [
-        contentRef.current.querySelector('.hero__title'),
-        contentRef.current.querySelector('.hero__subtitle'),
-        contentRef.current.querySelector('.hero__bio')
-      ],
+      contentRef.current.children,
       { y: 30, opacity: 0, filter: 'blur(5px)' },
       { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, stagger: 0.2 },
       '-=0.4'
-    )
-    .fromTo(
-      contentRef.current.querySelector('.contact-button-wrapper'),
-      { y: 30, opacity: 0, filter: 'blur(5px)' },
-      { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' },
-      ">"
     )
     .fromTo(
       socialsRef.current.children,
@@ -270,17 +260,12 @@ const Hero = () => {
             <span className="typewriter-cursor">|</span>
           </h2>
           <p className="hero__bio">
-            I build Amazfabawestun, performant web apps on platforms like <b>React</b>, <b>JS</b>, <b>TS</b> and on many more such modern web tech.<br />Let's create something amazing together!
+            I specialize in crafting elegant, high-performance web applications using <b>React</b>, <b>JavaScript</b>, <b>TypeScript</b> and other modern web technologies.
+            <br />Ready to bring your vision to life? Let's collaborate!
           </p>
-          <div className="contact-button-wrapper">
-            <Button 
-              variant="primary" 
-              size="large" 
-              onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}
-            >
-              Contact Me
-            </Button>
-          </div>
+          <Button variant="primary" size="large" onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}>
+            Contact Me
+          </Button>
           <div className="hero__socials" ref={socialsRef}>
             {socials.map((s) => (
               <a
