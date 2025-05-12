@@ -30,13 +30,13 @@ const skills = [
     items: [
       {
         name: 'React',
-        level: 95,
+        level: 90,
         icon: <FaReact />,
-        description: 'Advanced React development with Redux, Context API, and Hooks'
+        description: 'React development with Redux, Context API & Hooks'
       },
       {
         name: 'Vue',
-        level: 85,
+        level: 60,
         icon: <FaVuejs />,
         description: 'Vue.js development with Vuex and Composition API'
       },
@@ -54,13 +54,13 @@ const skills = [
     items: [
       {
         name: 'CSS3',
-        level: 92,
+        level: 90,
         icon: <FaCss3Alt />,
         description: 'Advanced CSS with Flexbox, Grid, and Animations'
       },
       {
         name: 'SASS',
-        level: 88,
+        level: 85,
         icon: <FaSass />,
         description: 'SASS/SCSS with mixins, functions, and architecture'
       }
@@ -72,19 +72,19 @@ const skills = [
     items: [
       {
         name: 'JavaScript',
-        level: 95,
+        level: 85,
         icon: <FaJs />,
-        description: 'Modern JavaScript with ES6+ features and async programming'
+        description: 'JavaScript with ES6+ features & async programming'
       },
       {
         name: 'TypeScript',
-        level: 90,
+        level: 70,
         icon: <SiTypescript />,
         description: 'TypeScript with advanced types and best practices'
       },
       {
         name: 'jQuery',
-        level: 85,
+        level: 80,
         icon: <SiJquery />,
         description: 'jQuery for DOM manipulation and legacy systems'
       }
@@ -96,16 +96,16 @@ const skills = [
     items: [
       {
         name: 'Node.js',
-        level: 92,
+        level: 65,
         icon: <FaNodeJs />,
         description: 'Node.js with Express and RESTful APIs'
       },
-      {
-        name: 'MongoDB',
-        level: 88,
-        icon: <SiMongodb />,
-        description: 'MongoDB with Mongoose ODM and aggregation pipelines'
-      }
+      // {
+      //   name: 'MongoDB',
+      //   level: 88,
+      //   icon: <SiMongodb />,
+      //   description: 'MongoDB with Mongoose ODM & aggregation pipelines'
+      // }
     ]
   },
   {
@@ -114,19 +114,19 @@ const skills = [
     items: [
       {
         name: 'Tailwind',
-        level: 90,
+        level: 70,
         icon: <SiTailwindcss />,
         description: 'Tailwind CSS with custom configurations'
       },
       {
         name: 'Bootstrap',
-        level: 88,
+        level: 90,
         icon: <FaBootstrap />,
         description: 'Bootstrap with custom theming and components'
       },
       {
         name: 'Mantine',
-        level: 85,
+        level: 95,
         icon: <SiMantine />,
         description: 'Mantine UI with custom hooks and components'
       }
@@ -138,9 +138,9 @@ const skills = [
     items: [
       {
         name: 'GitHub',
-        level: 92,
+        level: 95,
         icon: <FaGithub />,
-        description: 'GitHub with Actions, PR workflows, and collaboration'
+        description: 'GitHub with Actions, PR workflows, & collaboration'
       },
       {
         name: 'GitLab',
