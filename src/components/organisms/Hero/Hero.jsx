@@ -102,10 +102,20 @@ const Hero = () => {
       '-=1'
     )
     .fromTo(
-      contentRef.current.children,
+      [
+        contentRef.current.querySelector('.hero__title'),
+        contentRef.current.querySelector('.hero__subtitle'),
+        contentRef.current.querySelector('.hero__bio')
+      ],
       { y: 30, opacity: 0, filter: 'blur(5px)' },
       { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, stagger: 0.2 },
       '-=0.4'
+    )
+    .fromTo(
+      contentRef.current.querySelector('.contact-button-wrapper'),
+      { y: 30, opacity: 0, filter: 'blur(5px)' },
+      { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' },
+      ">"
     )
     .fromTo(
       socialsRef.current.children,
@@ -262,9 +272,15 @@ const Hero = () => {
           <p className="hero__bio">
             I build Amazfabawestun, performant web apps on platforms like <b>React</b>, <b>JS</b>, <b>TS</b> and on many more such modern web tech.<br />Let's create something amazing together!
           </p>
-          <Button variant="primary" size="large" onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}>
-            Contact Me
-          </Button>
+          <div className="contact-button-wrapper">
+            <Button 
+              variant="primary" 
+              size="large" 
+              onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}
+            >
+              Contact Me
+            </Button>
+          </div>
           <div className="hero__socials" ref={socialsRef}>
             {socials.map((s) => (
               <a
