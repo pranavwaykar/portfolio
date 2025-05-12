@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Button from '../../atoms/Button/Button';
+import { Select } from '@mantine/core';
 import './Contact.scss';
 
 const Contact = () => {
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [contactReason, setContactReason] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -109,13 +111,30 @@ const Contact = () => {
             placeholder="Phone Number" 
             required 
           />
-          <select name="reason" className="contact__input full-width">
-            <option value="">Why are you contacting us?</option>
-            <option value="business">Business</option>
-            <option value="job">Job Opportunity</option>
-            <option value="learning">Learning & Mentorship</option>
-            <option value="other">Other</option>
-          </select>
+          <div className="full-width">
+            <Select
+              name="reason"
+              placeholder="Why are you contacting us?"
+              value={contactReason}
+              onChange={setContactReason}
+              data={[
+                { value: 'business', label: 'Business' },
+                { value: 'job', label: 'Job Opportunity' },
+                { value: 'learning', label: 'Learning & Mentorship' },
+                { value: 'other', label: 'Other' }
+              ]}
+              required
+              styles={{
+                root: { width: '100%' },
+                input: { 
+                  height: '70px',
+                  borderRadius: '4px',
+                  fontSize: '16px',
+                  paddingLeft: '15px'
+                }
+              }}
+            />
+          </div>
           <textarea 
             name="message"
             className="contact__textarea full-width" 
