@@ -8,12 +8,12 @@ export const PROJECTS = [
     liveUrl: 'https://yourportfolio.com'
   },
   {
-    title: 'URL Optimization',
-    description: 'A URL shortening application that transforms long URLs into compact, shareable links with analytics tracking.',
-    image: 'https://i.pinimg.com/736x/52/b9/11/52b91155a780f10ad119b23370048baf.jpg',
+    title: 'Sound Stream Ripper',
+    description: 'A modern Node.js + React application that downloads music from Spotify URLs by finding equivalent YouTube videos and converting them to MP3 with metadata.',
+    image: 'https://i.guim.co.uk/img/media/970ad151d1becea167d0e8223285737fb4284568/1_0_4997_3000/master/4997.jpg?width=1020&dpr=2&s=none&crop=none',
     technologies: ['React', 'SASS'],
-    githubUrl: 'https://github.com/pranavwaykar/url_shortening',
-    liveUrl: 'https://url-optimization.netlify.app/'
+    githubUrl: 'https://github.com/pranavwaykar/Sound-Stream-Ripper',
+    liveUrl: ''
   },
   {
     title: 'On Road Remote vehicle Assistance',
@@ -40,22 +40,28 @@ export const PROJECTS = [
     liveUrl: 'https://gksyapi.netlify.app/'
   },
   {
-    title: 'Friendity',
-    description: 'A social networking application that helps users connect with like-minded individuals based on shared interests and activities.',
-    image: 'https://blogadmin.paltalk.com/blog/wp-content/uploads/2020/06/PalTalk_3-e1592289732764.png',
+    title: 'Component Library',
+    description: 'A scalable component library featuring dynamic, reusable UI components designed for seamless integration across applications. Built with a modular architecture and configurable APIs to ensure consistency, flexibility, and rapid development while maintaining a unified design system.',
+    image: 'https://www.datocms-assets.com/22695/1751314585-1664023742-component-library-vs-ds-image-4-component-libraries-contain-ui-elements-freepik.webp',
     technologies: ['React', 'Tailwind'],
-    githubUrl: 'https://github.com/pranavwaykar/frendity',
+    githubUrl: 'https://github.com/pranavwaykar/nsm-component-library',
     liveUrl: ''
   },
 ];
 
 export const EXPERIENCES = [
   {
-    role: "Software Engineer",
+    role: "Associate Product Manager",
     company: "Next Smart Move",
     duration: "October 2023 - Present",
-    description: "Leading development of a Time Tracking Management system built that integrates time tracking, task management, and resource planning. The platform provides real-time visibility into project progress, resource allocation, and productivity metrics for stakeholders across the organization."
-  },
+    description: "Owned product execution across Mesai (workforce analytics), Müellif (legal document automation), Muamelat (transaction & workflow management), and Mürşit (semantic intelligence engine). Translated legal and business requirements into roadmaps, PRDs, and delivery plans while collaborating with engineering, design, and stakeholders to drive AI-powered governance, automation, and operational efficiency."
+  },  
+  // {
+  //   role: "Software Engineer",
+  //   company: "Next Smart Move",
+  //   duration: "October 2023 - Present",
+  //   description: "Leading development of a Time Tracking Management system built that integrates time tracking, task management, and resource planning. The platform provides real-time visibility into project progress, resource allocation, and productivity metrics for stakeholders across the organization."
+  // },
   {
     role: "Software Engineer",
     company: "Trinesis Technologies pvt ltd.",

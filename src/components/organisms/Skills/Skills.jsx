@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fa';
 import { 
   SiTypescript, SiJquery, SiMongodb, SiTailwindcss, 
-  SiMantine 
+  SiMantine, SiExpress 
 } from 'react-icons/si';
 import './Skills.scss';
 
@@ -20,7 +20,8 @@ const colors = {
   scripting: '#B4B4B8',  // Forest green for JS, TS, jQuery
   backend: '#D5F0C1',    // Warm gold for Node, MongoDB
   ui: '#AEE2FF',         // Sky blue for Tailwind, Bootstrap, Mantine
-  vcs: '#F9B572'         // Slate gray for Github, Gitlab
+  vcs: '#F9B572',        // Slate gray for Github, Gitlab
+  pm: '#F7C59F'          // Soft orange for Product Management
 };
 
 const skills = [
@@ -100,12 +101,59 @@ const skills = [
         icon: <FaNodeJs />,
         description: 'Node.js with Express and RESTful APIs'
       },
-      // {
-      //   name: 'MongoDB',
-      //   level: 88,
-      //   icon: <SiMongodb />,
-      //   description: 'MongoDB with Mongoose ODM & aggregation pipelines'
-      // }
+      {
+        name: 'Express.js',
+        level: 60,
+        icon: <SiExpress />,
+        description: 'Express.js routing, middlewares & REST patterns'
+      },
+      {
+        name: 'MongoDB',
+        level: 70,
+        icon: <SiMongodb />,
+        description: 'MongoDB with Mongoose ODM & aggregation pipelines'
+      }
+    ]
+  },
+  {
+    name: 'Product Management',
+    color: colors.pm,
+    items: [
+      {
+        name: 'Roadmapping',
+        level: 85,
+        description: 'Translating strategy to outcome-focused roadmaps'
+      },
+      {
+        name: 'Agile & Scrum',
+        level: 90,
+        description: 'Sprint planning, backlog grooming, retrospectives'
+      },
+      {
+        name: 'Stakeholder Management',
+        level: 88,
+        description: 'Alignment across leadership, design and engineering'
+      },
+      {
+        name: 'User Research',
+        level: 80,
+        description: 'Interviews, JTBD, usability testing, synthesis'
+      },
+      {
+        name: 'Prioritization (RICE)',
+        level: 82,
+        description: 'Impact vs. effort scoring and trade‑off decisions'
+      },
+      {
+        name: 'Analytics & A/B Testing',
+        level: 78,
+        description: 'OKRs, funnels, experiment design & evaluation'
+      },
+      {
+        name: 'Jira',
+        level: 85,
+        description: 'Workflow setup, dashboards, delivery tracking'
+      }
     ]
   },
   {
@@ -362,14 +410,52 @@ const Skills = () => {
         // Draw expanded orb content with enhanced styling
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        
-        // Draw skill name with enhanced shadow
-        ctx.font = `bold ${16 + orb.expandProgress * 4}px Arial`;
+
+        // Helpers for wrapping and truncation
+        const truncateToWidth = (text, maxWidth) => {
+          let t = text;
+          while (ctx.measureText(`${t}…`).width > maxWidth && t.length > 0) {
+            t = t.slice(0, -1);
+          }
+          return t.length < text.length ? `${t}…` : t;
+        };
+
+        const wrapLines = (text, maxWidth, maxLines, lineHeight) => {
+          const words = text.split(' ');
+          const lines = [];
+          let current = '';
+          words.forEach(word => {
+            const test = current ? `${current} ${word}` : word;
+            if (ctx.measureText(test).width <= maxWidth) {
+              current = test;
+            } else {
+              if (current) lines.push(current);
+              current = word;
+            }
+          });
+          if (current) lines.push(current);
+          if (lines.length > maxLines) {
+            const last = lines.slice(maxLines - 1).join(' ');
+            const truncated = truncateToWidth(last, maxWidth);
+            return [...lines.slice(0, maxLines - 1), truncated];
+          }
+          return lines;
+        };
+
+        // Draw skill name with enhanced shadow and wrapping
+        const nameFontSize = 14 + orb.expandProgress * 4;
+        ctx.font = `bold ${nameFontSize}px Arial`;
         ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
         ctx.shadowBlur = 8;
         ctx.shadowOffsetY = 2;
         ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-        ctx.fillText(orb.skill.name, orb.x, orb.y - radius * 0.3);
+        const nameMaxWidth = radius * 1.6;
+        const nameLineHeight = nameFontSize + 2;
+        const nameLines = wrapLines(orb.skill.name, nameMaxWidth, 2, nameLineHeight);
+        const nameStartY = orb.y - radius * 0.3 - ((nameLines.length - 1) * nameLineHeight) / 2;
+        nameLines.forEach((line, i) => {
+          ctx.fillText(line, orb.x, nameStartY + i * nameLineHeight);
+        });
         
         // Reset shadow
         ctx.shadowColor = 'transparent';
@@ -436,15 +522,54 @@ const Skills = () => {
         });
         ctx.fillText(line, orb.x, lineY);
       } else {
-        // Draw regular orb content with enhanced styling
+        // Draw regular orb content with enhanced styling and wrapping
         ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-        ctx.font = '16px Arial';
+        const baseFontSize = 13;
+        ctx.font = `${baseFontSize}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
         ctx.shadowBlur = 8;
         ctx.shadowOffsetY = 2;
-        ctx.fillText(orb.skill.name, orb.x, orb.y);
+
+        // Wrapping helpers
+        const truncateToWidth = (text, maxWidth) => {
+          let t = text;
+          while (ctx.measureText(`${t}…`).width > maxWidth && t.length > 0) {
+            t = t.slice(0, -1);
+          }
+          return t.length < text.length ? `${t}…` : t;
+        };
+        const wrapLines = (text, maxWidth, maxLines, lineHeight) => {
+          const words = text.split(' ');
+          const lines = [];
+          let current = '';
+          words.forEach(word => {
+            const test = current ? `${current} ${word}` : word;
+            if (ctx.measureText(test).width <= maxWidth) {
+              current = test;
+            } else {
+              if (current) lines.push(current);
+              current = word;
+            }
+          });
+          if (current) lines.push(current);
+          if (lines.length > maxLines) {
+            const last = lines.slice(maxLines - 1).join(' ');
+            const truncated = truncateToWidth(last, maxWidth);
+            return [...lines.slice(0, maxLines - 1), truncated];
+          }
+          return lines;
+        };
+
+        const nameMaxWidth = radius * 1.5;
+        const lineHeight = baseFontSize + 2;
+        const lines = wrapLines(orb.skill.name, nameMaxWidth, 2, lineHeight);
+        const startY = orb.y - ((lines.length - 1) * lineHeight) / 2;
+        lines.forEach((line, i) => {
+          ctx.fillText(line, orb.x, startY + i * lineHeight);
+        });
+
         ctx.shadowColor = 'transparent';
       }
 
