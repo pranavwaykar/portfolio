@@ -371,6 +371,14 @@
       }
     }
   }
+
+  /* Buttons container under hero content */
+  .contact-button-wrapper {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 
 @keyframes blink {

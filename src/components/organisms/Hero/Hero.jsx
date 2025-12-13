@@ -336,6 +336,19 @@ const Hero = () => {
               variant="primary"
               size="large"
               onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/1P4Y5OJG6B28fnB3yAVJYExkg8OJJYODI/view?usp=sharing",
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
+            >
+              Resume
+            </Button>
+            <Button
+              variant="primary"
+              size="large"
+              onClick={() =>
                 document
                   .getElementById("contact")
                   .scrollIntoView({ behavior: "smooth" })
