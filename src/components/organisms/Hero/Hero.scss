@@ -407,6 +407,7 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
     overflow: hidden;
+    cursor: default;
 
     &:hover {
       transform: translateY(-3px);
@@ -456,7 +457,7 @@
 
   &__stat.is-hovered .hero__stat-video,
   &__stat:hover .hero__stat-video {
-    opacity: 0.70;
+    opacity: 0.55;
     transform: scale(1);
   }
 
