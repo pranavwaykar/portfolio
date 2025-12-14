@@ -10,6 +10,8 @@
   padding: $spacing-xxl $spacing-md;
   overflow: hidden;
   perspective: 1000px;
+  position: relative;
+  top: 25px;
 
   &__background {
     position: absolute;
