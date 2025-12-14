@@ -103,13 +103,13 @@ const skills = [
       },
       {
         name: 'Express.js',
-        level: 60,
+        level: 50,
         icon: <SiExpress />,
         description: 'Express.js routing, middlewares & REST patterns'
       },
       {
         name: 'MongoDB',
-        level: 70,
+        level: 50,
         icon: <SiMongodb />,
         description: 'MongoDB with Mongoose ODM & aggregation pipelines'
       }
@@ -129,21 +129,21 @@ const skills = [
         level: 90,
         description: 'Sprint planning, backlog grooming, retrospectives'
       },
-      {
-        name: 'Stakeholder Management',
-        level: 88,
-        description: 'Alignment across leadership, design and engineering'
-      },
+      // {
+      //   name: 'Stakeholder Management',
+      //   level: 88,
+      //   description: 'Alignment across leadership, design and engineering'
+      // },
       {
         name: 'User Research',
         level: 80,
         description: 'Interviews, JTBD, usability testing, synthesis'
       },
-      {
-        name: 'Prioritization (RICE)',
-        level: 82,
-        description: 'Impact vs. effort scoring and trade‑off decisions'
-      },
+      // {
+      //   name: 'Prioritization (RICE)',
+      //   level: 82,
+      //   description: 'Impact vs. effort scoring and trade‑off decisions'
+      // },
       {
         name: 'Analytics & A/B Testing',
         level: 78,
@@ -186,7 +186,7 @@ const skills = [
     items: [
       {
         name: 'GitHub',
-        level: 95,
+        level: 80,
         icon: <FaGithub />,
         description: 'GitHub with Actions, PR workflows, & collaboration'
       },

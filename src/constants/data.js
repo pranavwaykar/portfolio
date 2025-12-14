@@ -50,23 +50,23 @@ export const PROJECTS = [
 ];
 
 export const EXPERIENCES = [
-  {
-    role: "Associate Product Manager",
-    company: "Next Smart Move",
-    duration: "October 2023 - Present",
-    description: "Owned product execution across Mesai (workforce analytics), Müellif (legal document automation), Muamelat (transaction & workflow management), and Mürşit (semantic intelligence engine). Translated legal and business requirements into roadmaps, PRDs, and delivery plans while collaborating with engineering, design, and stakeholders to drive AI-powered governance, automation, and operational efficiency."
-  },  
   // {
-  //   role: "Software Engineer",
+  //   role: "Associate Product Manager",
   //   company: "Next Smart Move",
   //   duration: "October 2023 - Present",
-  //   description: "Leading development of a Time Tracking Management system built that integrates time tracking, task management, and resource planning. The platform provides real-time visibility into project progress, resource allocation, and productivity metrics for stakeholders across the organization."
-  // },
+  //   description: "Owned product execution across Mesai (workforce analytics), Müellif (legal document automation), Muamelat (transaction & workflow management), and Mürşit (semantic intelligence engine). Translated legal and business requirements into roadmaps, PRDs, and delivery plans while collaborating with engineering, design, and stakeholders to drive AI-powered governance, automation, and operational efficiency."
+  // },  
+  {
+    role: "Software Engineer",
+    company: "Next Smart Move",
+    duration: "October 2023 - Present",
+    description: "Designed and developed scalable front-end applications using React and TypeScript to power Mecellem’s AI-driven legal workflows. Built reusable, high-performance UI components and integrated semantic search, document analysis, wrt workflow automation APIs in collaboration with backend and AI teams. Implemented state management, role-based access control, and performance optimizations for data-intensive legal use cases. Led development of document-centric features including viewing, annotation, and contextual navigation. Translated business and legal requirements into clear technical solutions, while contributing to feature scoping, backlog grooming, and sprint execution to ensure timely, high-quality releases."
+  },  
   {
     role: "Software Engineer",
     company: "Trinesis Technologies pvt ltd.",
     duration: "December 2022 - September 2023",
-    description: "Collaborated with cross-platform teams like NAIX, achieving a 30% efficiency boost through frontend data extraction coordination. Implemented features including PDF highlight, statistical infographics, sentiment analysis, and AI chatbot. Pioneered development of Routing Orchestration and SMC module features while participating in code reviews."
+    description: "Collaborated with cross-functional teams to improve system efficiency, achieving a measurable performance boost through effective frontend data extraction and integration. Delivered user-centric features such as interactive PDF annotations, data-driven visualizations, sentiment insights, and AI-powered chatbot experiences. Orchestrated development of core platform modules, contributed to architectural enhancements, and actively participated in peer code reviews to ensure quality and scalability."
   },
   {
     role: "Software Developer",

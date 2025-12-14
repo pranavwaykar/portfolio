@@ -316,28 +316,28 @@ const Hero = () => {
             <span className="typewriter">{subtitle}</span>
             <span className="typewriter-cursor">|</span>
           </h2>
-          <p className="hero__bio">
+          {/* <p className="hero__bio">
             I specialize in driving end-to-end product delivery by aligning
             business goals, user needs, and engineering execution, working
             closely with cross-functional teams.
             <br />
             Ready to turn ideas into impactful products? Let’s build together!
-          </p>
+          </p> */}
 
-          {/* <p className="hero__bio">
+          <p className="hero__bio">
             I specialize in crafting elegant, high-performance web applications
             using <b>React</b>, <b>JavaScript</b>, <b>TypeScript</b> and other
             modern web technologies.
             <br />
             Ready to bring your vision to life? Let's collaborate!
-          </p> */}
+          </p>
           <div className="contact-button-wrapper">
             <Button
               variant="primary"
               size="large"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1P4Y5OJG6B28fnB3yAVJYExkg8OJJYODI/view?usp=sharing",
+                  "https://drive.google.com/file/d/1bmcjXbL-FVS0rX1cf_2jA0V1EuwZ8fR9/view?usp=sharing",
                   "_blank",
                   "noopener,noreferrer"
                 )
