@@ -24,17 +24,17 @@
 
   &__gradient {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -60%;
+    left: -60%;
+    width: 220%;
+    height: 220%;
     background: linear-gradient(135deg, 
       rgba(22,36,71,0.08) 0%,
       rgba(179,18,23,0.08) 50%,
       rgba(22,36,71,0.08) 100%
     );
-    filter: blur(80px);
-    transform: scale(1.2);
+    filter: blur(90px);
+    transform: scale(1.25);
     animation: gradientShift 15s ease-in-out infinite;
     mix-blend-mode: overlay;
   }
@@ -430,6 +430,27 @@
     opacity: 0.9;
   }
 
+}
+
+/* Mobile coverage fixes */
+@media (max-width: 768px) {
+  .hero {
+    &__background {
+      transform: none !important; /* avoid 3D tilt revealing edges on small screens */
+    }
+    &__gradient {
+      top: -80%;
+      left: -80%;
+      width: 260%;
+      height: 260%;
+      filter: blur(100px);
+      transform: scale(1.35) !important;
+    }
+    &__particles {
+      /* keep animation but ensure no 3D translation */
+      transform: none !important;
+    }
+  }
 }
 
 @keyframes blink {

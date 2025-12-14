@@ -9,6 +9,7 @@ const Navbar = () => {
   
   const logoRef = useRef(null);
   const letterRefs = useRef([]);
+  const progressRef = useRef(null);
   
   const menuItems = [
     { id: 'hero', label: 'HOME' },
@@ -102,9 +103,19 @@ const Navbar = () => {
           }
         }
       }
+
+      // Update scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+      if (progressRef.current) {
+        progressRef.current.style.transform = `scaleX(${progress})`;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Run once on mount to set initial progress
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [menuItems]);
 
@@ -119,6 +130,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="navbar__progress" ref={progressRef} />
       <div className="container">
         {/* Premium Logo */}
         <div 

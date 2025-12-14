@@ -23,6 +23,23 @@
     align-items: center;
   }
   
+  /* Top scroll progress bar */
+  &__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(90deg, #46b9fe, #175ce6, #46b9fe);
+    background-size: 200% 100%;
+    box-shadow: 0 0 12px rgba(70, 185, 254, 0.45);
+    animation: progressShimmer 3s linear infinite;
+    will-change: transform;
+    z-index: 1001;
+  }
+  
   &__brand {
     display: flex;
     flex-direction: column;
@@ -47,17 +64,33 @@
     .logo-line {
       position: relative;
       height: 2px;
-      background: linear-gradient(90deg, #175ce6, #46b9fe);
       margin-top: 4px;
       border-radius: 1px;
-      box-shadow: 0 1px 3px rgba(23, 92, 230, 0.4);
+      background: linear-gradient(90deg, rgba(23,92,230,0.3), #46b9fe, rgba(23,92,230,0.3));
+      background-size: 200% 100%;
+      animation: lineShine 2.4s linear infinite;
+      box-shadow: 0 2px 8px rgba(23, 92, 230, 0.45);
+      overflow: hidden;
+    }
+    
+    /* soft glow sweep */
+    .logo-line::after {
+      content: '';
+      position: absolute;
+      left: -40%;
+      top: -3px;
+      width: 40%;
+      height: 8px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+      transform: skewX(-25deg);
+      animation: lineGlint 2.4s linear infinite;
     }
   }
   
   &__menu {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.75rem;
     
     @media (max-width: 768px) {
       display: none;
@@ -65,45 +98,27 @@
   }
   
   &__item {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding: 0.4rem 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 0.5rem 0.8rem;
     cursor: pointer;
     position: relative;
-    transition: color 0.3s ease;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #175ce6, #46b9fe);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-      opacity: 0;
-      border-radius: 1px;
-    }
+    transition: color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    border-radius: 10px;
     
     &:hover {
       color: #ffffff;
-      
-      &::after {
-        width: 100%;
-        opacity: 1;
-      }
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-1px);
     }
     
     &.active {
       color: #ffffff;
-      
-      &::after {
-        width: 100%;
-        opacity: 1;
-      }
+      background: linear-gradient(180deg, rgba(23,92,230,0.18), rgba(70,185,254,0.12));
+      border: 1px solid rgba(70,185,254,0.28);
+      box-shadow: 0 6px 16px rgba(23,92,230,0.18);
     }
   }
   
@@ -206,3 +221,20 @@
     }
   }
 } 
+
+@keyframes progressShimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes lineShine {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes lineGlint {
+  0% { left: -40%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { left: 60%; opacity: 0.8; }
+  100% { left: 120%; opacity: 0; }
+}

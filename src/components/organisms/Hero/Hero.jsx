@@ -100,6 +100,8 @@ const Hero = () => {
 
   // Handle mouse move for parallax effect
   const handleMouseMove = (e) => {
+    // Disable parallax on small screens to avoid background edge exposure
+    if (window.innerWidth < 768) return;
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
     const x = (clientX - innerWidth / 2) / innerWidth;
@@ -222,8 +224,10 @@ const Hero = () => {
       },
     });
 
-    // Parallax effect on mouse move
-    window.addEventListener("mousemove", handleMouseMove);
+    // Parallax effect on mouse move (desktop only)
+    if (window.innerWidth >= 768) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
 
     return () => {
       pulseTween.current?.kill();
