@@ -11,9 +11,7 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-      <section id="hero">
-        <Hero />
-      </section>
+      <Hero />
       <section id="experience">
         <Experience />
       </section>

@@ -11,6 +11,12 @@ const subtitleTexts = [
   "Video Editor",
 ];
 
+const stats = [
+  { value: "3+", label: "Years Experience" },
+  { value: "10+", label: "Projects" },
+  { value: "Open", label: "To Opportunities" },
+];
+
 const socials = [
   {
     href: "https://github.com/pranavwaykar",
@@ -369,6 +375,14 @@ const Hero = () => {
               >
                 {s.icon}
               </a>
+            ))}
+          </div>
+          <div className="hero__stats">
+            {stats.map((s) => (
+              <div key={s.label} className="hero__stat">
+                <div className="hero__stat-value">{s.value}</div>
+                <div className="hero__stat-label">{s.label}</div>
+              </div>
             ))}
           </div>
         </div>
