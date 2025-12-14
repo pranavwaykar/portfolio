@@ -3,6 +3,7 @@ import gsap from "gsap";
 import "./Hero.scss";
 import Button from "../../atoms/Button/Button";
 import profileImage from "../../../assets/PranavSec.JPG";
+import bgVideo from "../../../assets/BlueParticlesVideo.mp4";
 
 const subtitleTexts = [
   "Project Manager",
@@ -97,6 +98,8 @@ const Hero = () => {
   const pulseTween = useRef(null);
   const colorTween = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hoveredStat, setHoveredStat] = useState(null);
+  const statVideoRefs = useRef([]);
 
   // Handle mouse move for parallax effect
   const handleMouseMove = (e) => {
@@ -382,8 +385,36 @@ const Hero = () => {
             ))}
           </div>
           <div className="hero__stats">
-            {stats.map((s) => (
-              <div key={s.label} className="hero__stat">
+            {stats.map((s, idx) => (
+              <div
+                key={s.label}
+                className={`hero__stat ${hoveredStat === idx ? "is-hovered" : ""}`}
+                onMouseEnter={() => {
+                  setHoveredStat(idx);
+                  const v = statVideoRefs.current[idx];
+                  if (v) {
+                    v.currentTime = 0;
+                    v.muted = true;
+                    v.play().catch(() => {});
+                  }
+                }}
+                onMouseLeave={() => {
+                  setHoveredStat(null);
+                  const v = statVideoRefs.current[idx];
+                  if (v) {
+                    v.pause();
+                  }
+                }}
+              >
+                <video
+                  className="hero__stat-video"
+                  src={bgVideo}
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  ref={(el) => (statVideoRefs.current[idx] = el)}
+                />
                 <div className="hero__stat-value">{s.value}</div>
                 <div className="hero__stat-label">{s.label}</div>
               </div>

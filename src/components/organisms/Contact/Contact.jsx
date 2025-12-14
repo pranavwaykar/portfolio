@@ -61,7 +61,7 @@ const Contact = () => {
 
   return (
     <section className="contact" id="contact" ref={sectionRef}>
-      <h2 className="contact__heading">Contacts</h2>
+      <h2 className="contact__heading">Contact</h2>
       <div className="contact__container">
         <div className="contact__info-section">
           <a
