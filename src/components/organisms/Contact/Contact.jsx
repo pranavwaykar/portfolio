@@ -1,7 +1,10 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Button from '../../atoms/Button/Button';
 import { Select } from '@mantine/core';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import './Contact.scss';
 
 const Contact = () => {
@@ -9,6 +12,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [contactReason, setContactReason] = useState('');
+  const sectionRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,52 +38,79 @@ const Contact = () => {
       });
   };
 
-  const handleEmailClick = () => {
-    const email = encodeURIComponent("waykarpranav777@gmail.com");
-    const subject = encodeURIComponent("Contact from Portfolio");
-    const mailtoLink = `mailto:${email}?subject=${subject}`;
-    window.location.href = mailtoLink;
-  };
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const section = sectionRef.current;
+    if (!section) return;
+    const infoItems = section.querySelectorAll('.contact__info-item');
+    const formEl = section.querySelector('.contact__form');
 
-  const handlePhoneClick = () => {
-    window.location.href = "tel:+919762804636";
-  };
-
-  const handleLocationClick = () => {
-    window.open("https://maps.google.com/?q=Pune,Maharashtra,India", "_blank");
-  };
+    gsap.fromTo(infoItems, 
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.15, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 75%' }
+      }
+    );
+    gsap.fromTo(formEl, 
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 75%' }
+      }
+    );
+  }, []);
 
   return (
-    <section className="contact" id="contact">
+    <section className="contact" id="contact" ref={sectionRef}>
       <h2 className="contact__heading">Contacts</h2>
       <div className="contact__container">
         <div className="contact__info-section">
-          <a 
-            href="mailto:waykarpranav777@gmail.com" 
+          <a
+            href="mailto:waykarpranav777@gmail.com?subject=Contact%20from%20Portfolio"
             className="contact__info-item"
             style={{ textDecoration: 'none' }}
-            onClick={handleEmailClick}
+            aria-label="Email Pranav at waykarpranav777@gmail.com"
           >
-            <div>
-              <h3>You can Email Me Here</h3>
-              <p>waykarpranav777@gmail.com</p>
+            <div className="contact__info-content">
+              <span className="contact__info-icon" aria-hidden="true"><FiMail /></span>
+              <div>
+                <h3>You can Email Me Here</h3>
+                <p>waykarpranav777@gmail.com</p>
+              </div>
             </div>
-            <span className="arrow">→</span>
+            <span className="arrow" aria-hidden="true">→</span>
           </a>
-          <div className="contact__info-item" onClick={handlePhoneClick}>
-            <div>
-              <h3>Give Me a Call on</h3>
-              <p>+91 97628 04636</p>
+          <a
+            href="tel:+919762804636"
+            className="contact__info-item"
+            aria-label="Call Pranav at +91 97628 04636"
+            style={{ textDecoration: 'none' }}
+          >
+            <div className="contact__info-content">
+              <span className="contact__info-icon" aria-hidden="true"><FiPhone /></span>
+              <div>
+                <h3>Give Me a Call on</h3>
+                <p>+91 97628 04636</p>
+              </div>
             </div>
-            <span className="arrow">→</span>
-          </div>
-          <div className="contact__info-item" onClick={handleLocationClick}>
-            <div>
-              <h3>Location</h3>
-              <p>Pune, Maharashtra, India</p>
+            <span className="arrow" aria-hidden="true">→</span>
+          </a>
+          <a
+            href="https://maps.google.com/?q=Pune,Maharashtra,India"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact__info-item"
+            aria-label="Open location Pune, Maharashtra, India on maps"
+            style={{ textDecoration: 'none' }}
+          >
+            <div className="contact__info-content">
+              <span className="contact__info-icon" aria-hidden="true"><FiMapPin /></span>
+              <div>
+                <h3>Location</h3>
+                <p>Pune, Maharashtra, India</p>
+              </div>
             </div>
-            <span className="arrow">→</span>
-          </div>
+            <span className="arrow" aria-hidden="true">→</span>
+          </a>
         </div>
         
         <form ref={form} className="contact__form" onSubmit={handleSubmit}>
@@ -157,14 +188,14 @@ const Contact = () => {
           />
           <div className="contact__button-wrapper">
             <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send'}
+              {isSubmitting ? 'Sending...' : 'Send Email'}
             </Button>
           </div>
           {submitStatus && (
             <div className={`contact__status contact__status--${submitStatus}`}>
               {submitStatus === 'success' 
                 ? 'Message sent successfully!' 
-                : 'Message sent successfully!'}
+                : 'Something went wrong. Please try again.'}
             </div>
           )}
         </form>
