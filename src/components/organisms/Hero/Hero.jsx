@@ -14,7 +14,7 @@ const subtitleTexts = [
 const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "10+", label: "Projects" },
-  { value: "Open", label: "To Opportunities" },
+  { value: "OPEN", label: "To Opportunities" },
 ];
 
 const socials = [

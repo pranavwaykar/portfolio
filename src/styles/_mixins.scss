@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'sass:color';
 
 // Media Query Mixins
 @mixin respond-to($breakpoint) {
@@ -75,7 +76,7 @@
   color: $white;
   
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: color.adjust($primary-color, $lightness: -10%);
   }
 }
 
@@ -85,7 +86,7 @@
   color: $white;
   
   &:hover {
-    background-color: darken($secondary-color, 10%);
+    background-color: color.adjust($secondary-color, $lightness: -10%);
   }
 }
 
