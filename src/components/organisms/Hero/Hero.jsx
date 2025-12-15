@@ -192,6 +192,12 @@ const Hero = () => {
           },
         },
         "-=0.4"
+      )
+      .fromTo(
+        contentRef.current.querySelectorAll(".hero__stats .hero__stat"),
+        { y: 24, opacity: 0, scale: 0.96, filter: "blur(4px)" },
+        { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, stagger: 0.12, ease: "power3.out" },
+        ">-0.1"
       );
 
     // Continuous floating animation for the profile image
@@ -346,6 +352,7 @@ const Hero = () => {
           </p>
           <div className="contact-button-wrapper">
             <Button
+              className="resume-button"
               variant="primary"
               size="large"
               onClick={() =>
