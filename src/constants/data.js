@@ -23,22 +23,22 @@ export const PROJECTS = [
     githubUrl: 'https://github.com/pranavwaykar/Remote-Vehicle-Assistant',
     liveUrl: ''
   },
-  {
-    title: 'NASA Stellar',
-    description: 'An interactive space exploration application showcasing NASA imagery and data, allowing users to browse celestial objects and astronomical discoveries.',
-    image: 'https://i.ytimg.com/vi/tn69VRchLbA/maxresdefault.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/pranavwaykar/NASA-Stellar',
-    liveUrl: ''
-  },
-  {
-    title: 'Real Estate Website',
-    description: 'A comprehensive real estate platform featuring property listings, advanced search filters, and interactive maps for browsing available properties.',
-    image: 'https://mycodelesswebsite.com/wp-content/uploads/2024/09/Toll-Brothers-Real-Estate-Website-Design.jpg',
-    technologies: ['React', 'SASS', 'GSAP', 'Mantine'],
-    githubUrl: 'https://github.com/pranavwaykar/gksyapi',
-    liveUrl: 'https://gksyapi.netlify.app/'
-  },
+  // {
+  //   title: 'NASA Stellar',
+  //   description: 'An interactive space exploration application showcasing NASA imagery and data, allowing users to browse celestial objects and astronomical discoveries.',
+  //   image: 'https://i.ytimg.com/vi/tn69VRchLbA/maxresdefault.jpg',
+  //   technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+  //   githubUrl: 'https://github.com/pranavwaykar/NASA-Stellar',
+  //   liveUrl: ''
+  // },
+  // {
+  //   title: 'Real Estate Website',
+  //   description: 'A comprehensive real estate platform featuring property listings, advanced search filters, and interactive maps for browsing available properties.',
+  //   image: 'https://mycodelesswebsite.com/wp-content/uploads/2024/09/Toll-Brothers-Real-Estate-Website-Design.jpg',
+  //   technologies: ['React', 'SASS', 'GSAP', 'Mantine'],
+  //   githubUrl: 'https://github.com/pranavwaykar/gksyapi',
+  //   liveUrl: 'https://gksyapi.netlify.app/'
+  // },
   {
     title: 'Component Library',
     description: 'A scalable component library featuring dynamic, reusable UI components designed for seamless integration across applications. Built with a modular architecture and configurable APIs to ensure consistency, flexibility, and rapid development while maintaining a unified design system.',
