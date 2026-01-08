@@ -43,9 +43,9 @@ export const PROJECTS = [
     title: 'Component Library',
     description: 'A scalable component library featuring dynamic, reusable UI components designed for seamless integration across applications. Built with a modular architecture and configurable APIs to ensure consistency, flexibility, and rapid development while maintaining a unified design system.',
     image: 'https://www.datocms-assets.com/22695/1751314585-1664023742-component-library-vs-ds-image-4-component-libraries-contain-ui-elements-freepik.webp',
-    technologies: ['React', 'Tailwind'],
-    githubUrl: 'https://github.com/pranavwaykar/nsm-component-library',
-    liveUrl: ''
+    technologies: ['React', 'storybook','Tailwind'],
+    githubUrl: 'https://github.com/pranavwaykar/component-library',
+    liveUrl: 'https://nsm-component-library.netlify.app/'
   },
 ];
 
