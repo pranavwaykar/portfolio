@@ -1,4 +1,12 @@
 export const PROJECTS = [
+    {
+    title: 'Sound Stream Ripper',
+    description: 'A modern Node.js + React application that downloads music from Spotify URLs by finding equivalent YouTube videos and converting them to MP3 with metadata.',
+    image: 'https://i.guim.co.uk/img/media/970ad151d1becea167d0e8223285737fb4284568/1_0_4997_3000/master/4997.jpg?width=1020&dpr=2&s=none&crop=none',
+    technologies: ['React', 'SASS'],
+    githubUrl: 'https://github.com/pranavwaykar/Sound-Stream-Ripper',
+    liveUrl: ''
+  },
   {
     title: 'MomentumX',
     description: 'MomentumX is a problem-first platform that helps turn ideas into MVPs by bringing structure from the start and connecting entrepreneurs, developers, and designers to build with purpose.',
@@ -7,14 +15,7 @@ export const PROJECTS = [
     githubUrl: 'https://github.com/pranavwaykar/MomentumX',
     liveUrl: 'https://momentumx-live.netlify.app/'
   },
-  {
-    title: 'Sound Stream Ripper',
-    description: 'A modern Node.js + React application that downloads music from Spotify URLs by finding equivalent YouTube videos and converting them to MP3 with metadata.',
-    image: 'https://i.guim.co.uk/img/media/970ad151d1becea167d0e8223285737fb4284568/1_0_4997_3000/master/4997.jpg?width=1020&dpr=2&s=none&crop=none',
-    technologies: ['React', 'SASS'],
-    githubUrl: 'https://github.com/pranavwaykar/Sound-Stream-Ripper',
-    liveUrl: ''
-  },
+
   {
     title: 'On Road Remote vehicle Assistance',
     description: 'An emergency vehicle assistance platform that connects stranded motorists with nearby mechanics and service providers in real-time.',
