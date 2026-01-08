@@ -1,11 +1,11 @@
 export const PROJECTS = [
   {
-    title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio website built with React and SASS, following Atomic Design principles.',
+    title: 'MomentumX',
+    description: 'MomentumX is a problem-first platform that helps turn ideas into MVPs by bringing structure from the start and connecting entrepreneurs, developers, and designers to build with purpose.',
     image: 'https://www.hostinger.in/tutorials/wp-content/uploads/sites/2/2022/06/Portfolio-website-of-the-product-designer-and-front-end-developer-Adham-Dannaway-1024x869.png',
-    technologies: ['React', 'SASS', 'GSAP'],
-    githubUrl: 'https://github.com/pranavwaykar/portfolio_sec',
-    liveUrl: 'https://yourportfolio.com'
+    technologies: ['Next.js', 'TypeScript', 'SASS'],
+    githubUrl: 'https://github.com/pranavwaykar/MomentumX',
+    liveUrl: 'https://momentumx-live.netlify.app/'
   },
   {
     title: 'Sound Stream Ripper',
