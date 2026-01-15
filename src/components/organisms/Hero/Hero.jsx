@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./Hero.scss";
 import Button from "../../atoms/Button/Button";
-import profileImage from "../../../assets/PranavSec.JPG";
+import profileImage from "../../../assets/ProfilePicture.png";
 
 const subtitleTexts = [
   "Project Manager",
