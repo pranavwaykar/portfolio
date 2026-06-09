@@ -51,16 +51,16 @@ export const PROJECTS = [
 ];
 
 export const EXPERIENCES = [
-  // {
-  //   role: "Associate Product Manager",
-  //   company: "Next Smart Move",
-  //   duration: "October 2023 - Present",
-  //   description: "Owned product execution across Mesai (workforce analytics), Müellif (legal document automation), Muamelat (transaction & workflow management), and Mürşit (semantic intelligence engine). Translated legal and business requirements into roadmaps, PRDs, and delivery plans while collaborating with engineering, design, and stakeholders to drive AI-powered governance, automation, and operational efficiency."
-  // },  
+  {
+  role: "Accessibility Developer",
+  company: "Transcom",
+  duration: "March 2026 - June 2026",
+  description: "Contributed to Juno, an AI-powered accessibility automation platform designed to identify, analyze, and assist in resolving accessibility issues across enterprise websites. Developed scalable React.js frontend modules, optimized application performance through rendering and code-splitting techniques, and collaborated with product and engineering teams to deliver data-driven accessibility insights and remediation workflows."
+  },
   {
     role: "Software Engineer",
     company: "Next Smart Move",
-    duration: "October 2023 - Present",
+    duration: "October 2023 - January 2026",
     description: "Designed and developed scalable front-end applications using React and TypeScript to power Mecellem’s AI-driven legal workflows. Built reusable, high-performance UI components and integrated semantic search, document analysis, wrt workflow automation APIs in collaboration with backend and AI teams. Implemented state management, role-based access control, and performance optimizations for data-intensive legal use cases. Led development of document-centric features including viewing, annotation, and contextual navigation. Translated business and legal requirements into clear technical solutions, while contributing to feature scoping, backlog grooming, and sprint execution to ensure timely, high-quality releases."
   },  
   {
@@ -85,33 +85,111 @@ export const EXPERIENCES = [
 
 // Add more sections as needed
 export const SKILLS = [
-  {
-    category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "SASS/SCSS", "Tailwind CSS"]
-  },
-  {
-    category: "Backend",
-    items: ["Node.js", "Express", "MongoDB", "PostgreSQL", "RESTful APIs"]
-  },
-  {
-    category: "Tools",
-    items: ["Git", "Docker", "Webpack", "Jest", "CI/CD"]
-  },
-  {
-    category: "Design",
-    items: ["Figma", "Adobe XD", "Responsive Design", "UI/UX Principles"]
-  }
+{
+category: "Frontend",
+items: [
+"React.js",
+"Next.js",
+"JavaScript (ES6+)",
+"TypeScript",
+"HTML5",
+"CSS3",
+"SCSS",
+"jQuery",
+"Redux",
+"Redux Saga",
+"Context API",
+"React Hooks"
+]
+},
+{
+category: "UI Libraries",
+items: [
+"Material UI",
+"Mantine UI",
+"Bootstrap",
+"Tailwind CSS",
+"Styled Components",
+"Storybook"
+]
+},
+{
+category: "Backend & APIs",
+items: [
+"Node.js",
+"Java",
+"REST APIs",
+"SSO Authentication",
+"JWT Authentication"
+]
+},
+{
+category: "Tools",
+items: [
+"Git",
+"GitHub",
+"GitLab",
+"Postman",
+"VS Code",
+"npm",
+"Vite",
+"Webpack",
+"Babel"
+]
+},
+{
+category: "Performance & Testing",
+items: [
+"Code Splitting",
+"Lazy Loading",
+"Memoization",
+"Debouncing",
+"Optimistic UI",
+"Bundle Size Optimization",
+"Unit Testing",
+"Jest",
+"Debugging",
+"Cross-Browser Compatibility"
+]
+},
+{
+category: "Development Practices",
+items: [
+"Agile",
+"Scrum",
+"SDLC",
+"Sprint Planning",
+"Code Reviews",
+"Documentation",
+"Requirement Analysis",
+"Troubleshooting",
+"Continuous Integration"
+]
+},
+{
+category: "Domain Expertise",
+items: [
+"AI-Powered Applications",
+"AI Chatbots",
+"Legal-Tech Platforms",
+"Document Management Systems",
+"Accessibility Automation",
+"Enterprise SaaS Applications",
+"Enterprise Web Applications"
+]
+}
 ];
+
 
 export const SOCIAL_LINKS = {
   github: 'https://github.com/yourusername',
   linkedin: 'https://linkedin.com/in/yourusername',
   twitter: 'https://twitter.com/yourusername',
-  email: 'your.email@example.com'
+  email: 'pranavwaykarofficail@gmail.com'
 };
 
 export const CONTACT_INFO = {
-  email: 'your.email@example.com',
-  location: 'City, Country',
+  email: 'pranavwaykarofficail@gmail.com',
+  location: 'Pune, India',
   availability: 'Open to opportunities'
 }; 

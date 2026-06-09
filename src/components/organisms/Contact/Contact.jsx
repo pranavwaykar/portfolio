@@ -65,16 +65,16 @@ const Contact = () => {
       <div className="contact__container">
         <div className="contact__info-section">
           <a
-            href="mailto:waykarpranav777@gmail.com?subject=Contact%20from%20Portfolio"
+            href="mailto:pranavwaykaroffical@gmail.com?subject=Contact%20from%20Portfolio"
             className="contact__info-item"
             style={{ textDecoration: 'none' }}
-            aria-label="Email Pranav at waykarpranav777@gmail.com"
+            aria-label="Email Pranav at pranavwaykaroffical@gmail.com"
           >
             <div className="contact__info-content">
               <span className="contact__info-icon" aria-hidden="true"><FiMail /></span>
               <div>
                 <h3>You can Email Me Here</h3>
-                <p>waykarpranav777@gmail.com</p>
+                <p>pranavwaykaroffical@gmail.com</p>
               </div>
             </div>
             <span className="arrow" aria-hidden="true">→</span>
