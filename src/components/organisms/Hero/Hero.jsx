@@ -6,7 +6,7 @@ import profileImage from "../../../assets/ProfilePicture.png";
 
 const subtitleTexts = [
   "Project Manager",
-  "Frontend Developer",
+  "Software Engineer",
   "Graphic Designer",
   "Video Editor",
 ];
@@ -342,9 +342,8 @@ const Hero = () => {
           </p> */}
 
           <p className="hero__bio">
-            I specialize in crafting elegant, high-performance web applications
-            using <b>React</b>, <b>JavaScript</b>, <b>TypeScript</b> and other
-            modern web technologies.
+            No matter the challenge, I approach it with a blend of
+            <b> Creativity</b>, <b>Engineering</b>, and <b>Management</b> to build solutions that create meaningful impact.
             <br />
             Ready to bring your vision to life? Let's collaborate!
           </p>
