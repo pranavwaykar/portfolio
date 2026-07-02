@@ -354,7 +354,7 @@ const Hero = () => {
               size="large"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/19bVbErEg1IsKg31Y9yOA0Qb2nvVVAN3u/view?usp=sharing",
+                  "https://drive.google.com/file/d/1AnVIfeQpn40Pr9Vipn09fcsT-kOVzULk/view?usp=sharing",
                   "_blank",
                   "noopener,noreferrer"
                 )
