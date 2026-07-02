@@ -342,8 +342,8 @@ const Hero = () => {
           </p> */}
 
           <p className="hero__bio">
-            No matter the challenge, I approach it with a blend of
-            <b> Creativity</b>, <b>Engineering</b>, and <b>Management</b> to build solutions that create meaningful impact.
+            No matter the challenge, I approach it with a blend of{" "}
+            <b>Creativity</b>, <b>Engineering</b>, and <b>Strategic Vision </b> to build solutions that create meaningful impact.
             <br />
             Ready to bring your vision to life? Let's collaborate!
           </p>

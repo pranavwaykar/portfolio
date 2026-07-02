@@ -1,201 +1,68 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  FaReact, FaVuejs, FaHtml5, FaCss3Alt, FaSass, 
-  FaJs, FaNodeJs, FaGithub, FaGitlab, FaBootstrap 
-} from 'react-icons/fa';
-import { 
-  SiTypescript, SiJquery, SiMongodb, SiTailwindcss, 
-  SiMantine, SiExpress 
-} from 'react-icons/si';
 import './Skills.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Professional color palette for technology groups
 const colors = {
-  frameworks: '#6E85B7', // Deep blue for React, Vue, HTML
-  styling: '#AC87C5',    // Rich purple for CSS, SASS
-  scripting: '#B4B4B8',  // Forest green for JS, TS, jQuery
-  backend: '#D5F0C1',    // Warm gold for Node, MongoDB
-  ui: '#AEE2FF',         // Sky blue for Tailwind, Bootstrap, Mantine
-  vcs: '#F9B572',        // Slate gray for Github, Gitlab
-  pm: '#F7C59F'          // Soft orange for Product Management
+  frameworks: '#6E85B7',
+  styling: '#912bd4',
+  backend: '#921b21',
+  ui: '#AEE2FF',
+  vcs: '#a2f57b',
+  ai: '#e4e124'
 };
 
 const skills = [
   {
-    name: 'Frontend Frameworks',
+    name: 'Frontend',
     color: colors.frameworks,
     items: [
-      {
-        name: 'React',
-        level: 90,
-        icon: <FaReact />,
-        description: 'React development with Redux, Context API & Hooks'
-      },
-      {
-        name: 'Vue',
-        level: 60,
-        icon: <FaVuejs />,
-        description: 'Vue.js development with Vuex and Composition API'
-      },
-      {
-        name: 'HTML5',
-        level: 90,
-        icon: <FaHtml5 />,
-        description: 'Semantic HTML with accessibility best practices'
-      }
+      { name: 'React', level: 95, description: 'React development' },
+      { name: 'Next', level: 95, description: 'React development' },
+      { name: 'Angular', level: 85, description: 'Angular development' },
+      { name: 'JavaScript', level: 90, description: 'JavaScript development' },
+      { name: 'TypeScript', level: 90, description: 'TypeScript development' },
+      { name: 'HTML', level: 90, description: 'HTML development' },
+      { name: 'CSS', level: 90, description: 'CSS development' }
     ]
   },
   {
-    name: 'Styling',
-    color: colors.styling,
+    name: 'UI Libraries',
+    color: colors.ui,
     items: [
-      {
-        name: 'CSS3',
-        level: 90,
-        icon: <FaCss3Alt />,
-        description: 'Advanced CSS with Flexbox, Grid, and Animations'
-      },
-      {
-        name: 'SASS',
-        level: 85,
-        icon: <FaSass />,
-        description: 'SASS/SCSS with mixins, functions, and architecture'
-      }
-    ]
-  },
-  {
-    name: 'Scripting',
-    color: colors.scripting,
-    items: [
-      {
-        name: 'JavaScript',
-        level: 85,
-        icon: <FaJs />,
-        description: 'JavaScript with ES6+ features & async programming'
-      },
-      {
-        name: 'TypeScript',
-        level: 70,
-        icon: <SiTypescript />,
-        description: 'TypeScript with advanced types and best practices'
-      },
-      {
-        name: 'jQuery',
-        level: 80,
-        icon: <SiJquery />,
-        description: 'jQuery for DOM manipulation and legacy systems'
-      }
+      { name: 'Bootstrap', level: 90, description: 'Bootstrap UI' },
+      { name: 'Tailwind', level: 90, description: 'Tailwind UI' },
+      { name: 'Material', level: 85, description: 'Material UI' }
     ]
   },
   {
     name: 'Backend',
     color: colors.backend,
     items: [
-      {
-        name: 'Node.js',
-        level: 65,
-        icon: <FaNodeJs />,
-        description: 'Node.js with Express and RESTful APIs'
-      },
-      {
-        name: 'Express.js',
-        level: 50,
-        icon: <SiExpress />,
-        description: 'Express.js routing, middlewares & REST patterns'
-      },
-      {
-        name: 'MongoDB',
-        level: 50,
-        icon: <SiMongodb />,
-        description: 'MongoDB with Mongoose ODM & aggregation pipelines'
-      }
+      { name: 'Node', level: 90, description: 'Node.js backend' },
+      { name: 'Java', level: 85, description: 'Java backend' },
+      { name: 'C#', level: 80, description: 'C# backend' },
+      { name: '.Net', level: 80, description: '.NET backend' }
     ]
   },
   {
-    name: 'Product Management',
-    color: colors.pm,
-    items: [
-      {
-        name: 'Roadmapping',
-        level: 85,
-        description: 'Translating strategy to outcome-focused roadmaps'
-      },
-      {
-        name: 'Agile & Scrum',
-        level: 90,
-        description: 'Sprint planning, backlog grooming, retrospectives'
-      },
-      // {
-      //   name: 'Stakeholder Management',
-      //   level: 88,
-      //   description: 'Alignment across leadership, design and engineering'
-      // },
-      {
-        name: 'User Research',
-        level: 80,
-        description: 'Interviews, JTBD, usability testing, synthesis'
-      },
-      // {
-      //   name: 'Prioritization (RICE)',
-      //   level: 82,
-      //   description: 'Impact vs. effort scoring and trade‑off decisions'
-      // },
-      {
-        name: 'Analytics & A/B Testing',
-        level: 78,
-        description: 'OKRs, funnels, experiment design & evaluation'
-      },
-      {
-        name: 'Jira',
-        level: 85,
-        description: 'Workflow setup, dashboards, delivery tracking'
-      }
-    ]
-  },
-  {
-    name: 'UI Frameworks',
-    color: colors.ui,
-    items: [
-      {
-        name: 'Tailwind',
-        level: 70,
-        icon: <SiTailwindcss />,
-        description: 'Tailwind CSS with custom configurations'
-      },
-      {
-        name: 'Bootstrap',
-        level: 90,
-        icon: <FaBootstrap />,
-        description: 'Bootstrap with custom theming and components'
-      },
-      {
-        name: 'Mantine',
-        level: 95,
-        icon: <SiMantine />,
-        description: 'Mantine UI with custom hooks and components'
-      }
-    ]
-  },
-  {
-    name: 'Version Control',
+    name: 'Dev Tools',
     color: colors.vcs,
     items: [
-      {
-        name: 'GitHub',
-        level: 80,
-        icon: <FaGithub />,
-        description: 'GitHub with Actions, PR workflows, & collaboration'
-      },
-      {
-        name: 'GitLab',
-        level: 90,
-        icon: <FaGitlab />,
-        description: 'GitLab with CI/CD pipelines and DevOps practices'
-      }
+      { name: 'GitHub', level: 90, description: 'GitHub collaboration' },
+      { name: 'GitLab', level: 85, description: 'GitLab collaboration' },
+      { name: 'AWS', level: 80, description: 'AWS cloud' },
+      { name: 'Azure', level: 80, description: 'Azure cloud' }
+    ]
+  },
+  {
+    name: 'AI',
+    color: colors.ai,
+    items: [
+      { name: 'Agentic AI', level: 85, description: 'Agentic AI systems' }
     ]
   }
 ];

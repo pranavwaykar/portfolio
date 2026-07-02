@@ -75,12 +75,12 @@ export const EXPERIENCES = [
     duration: "July 2022 - December 2022",
     description: "Developed intuitive features using JavaScript & Java, with critical bug fixes that decreased turnaround time by 4%. Worked with cross-platform teams to implement code enhancements for API Services integration in the LMM Module. Maintained client communication to ensure aligned iterations and improvements."
   },
-  {
-    role: "D2AS Associate",
-    company: "Amazon",
-    duration: "February 2021 - June 2022",
-    description: "Specialized in troubleshooting and debugging for Amazon platforms, identifying and resolving reported issues. Achieved a 30% reduction in issue resolution time by implementing a restructured workflow for the issue-reporting portal."
-  }
+  // {
+  //   role: "D2AS Associate",
+  //   company: "Amazon",
+  //   duration: "February 2021 - June 2022",
+  //   description: "Specialized in troubleshooting and debugging for Amazon platforms, identifying and resolving reported issues. Achieved a 30% reduction in issue resolution time by implementing a restructured workflow for the issue-reporting portal."
+  // }
 ];
 
 // Add more sections as needed
