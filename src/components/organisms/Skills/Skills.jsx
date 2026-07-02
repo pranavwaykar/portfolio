@@ -12,7 +12,7 @@ const colors = {
   backend: '#921b21',
   ui: '#AEE2FF',
   vcs: '#a2f57b',
-  ai: '#e4e124'
+  ai: '#faf627'
 };
 
 const skills = [
@@ -62,7 +62,7 @@ const skills = [
     name: 'AI',
     color: colors.ai,
     items: [
-      { name: 'Agentic AI', level: 85, description: 'Agentic AI systems' }
+      { name: 'Gen AI', level: 85, description: 'Gen AI & Agentic AI systems' }
     ]
   }
 ];
@@ -115,7 +115,16 @@ const Skills = () => {
             expandedRadius: 80,
             expandProgress: 0,
             isExpanding: false,
-            isMoving: true
+            isMoving: true,
+            orbiters: (skill.name === 'Agentic AI' || category.name === 'AI')
+              ? Array.from({ length: 8 }, (_, index) => ({
+                  angle: (index / 8) * Math.PI * 2,
+                  speed: 0.02 + index * 0.003,
+                  size: 2.5 + (index % 3),
+                  distance: 28 + index * 3,
+                  alpha: 0.25 + (index % 4) * 0.1
+                }))
+              : []
           };
           orbs.push(orb);
           orbsRef.current.push(orb);
@@ -264,6 +273,58 @@ const Skills = () => {
         ctx.strokeStyle = `${baseColor}22`;
         ctx.lineWidth = 2;
         ctx.stroke();
+      }
+
+      // AI orb luminous pulse effect
+      if (orb.orbiters && orb.orbiters.length > 0) {
+        const aiPulse = 0.8 + Math.sin(time * 2.2) * 0.2;
+        const auraGradient = ctx.createRadialGradient(
+          orb.x,
+          orb.y,
+          radius * 0.2,
+          orb.x,
+          orb.y,
+          radius * 2.4
+        );
+        auraGradient.addColorStop(0, `${baseColor}00`);
+        auraGradient.addColorStop(0.2, `${baseColor}28`);
+        auraGradient.addColorStop(0.6, `${baseColor}14`);
+        auraGradient.addColorStop(1, `${baseColor}00`);
+
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, radius * 2.4, 0, Math.PI * 2);
+        ctx.fillStyle = auraGradient;
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(orb.x, orb.y);
+        ctx.beginPath();
+        ctx.arc(0, 0, radius + 10 + Math.sin(time * 2.3) * 2, 0, Math.PI * 2);
+        ctx.strokeStyle = `${baseColor}${Math.floor(180 * aiPulse).toString(16).padStart(2, '0')}`;
+        ctx.lineWidth = 1.6;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius + 20, 0, Math.PI * 2);
+        ctx.strokeStyle = `${baseColor}55`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.restore();
+
+        // Subtle light streaks around the orb
+        ctx.save();
+        ctx.translate(orb.x, orb.y);
+        for (let i = 0; i < 4; i++) {
+          const streakOffset = (i - 1.5) * 7;
+          const streakHeight = 10 + Math.sin(time * 1.8 + i) * 2;
+          ctx.beginPath();
+          ctx.moveTo(-radius * 0.5 + streakOffset, -streakHeight / 2);
+          ctx.quadraticCurveTo(0, -streakHeight, radius * 0.5 + streakOffset, streakHeight / 2);
+          ctx.strokeStyle = `${baseColor}${Math.floor(40 + aiPulse * 25).toString(16).padStart(2, '0')}`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+        ctx.restore();
       }
 
       // Draw content with enhanced styling
