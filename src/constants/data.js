@@ -52,35 +52,36 @@ export const PROJECTS = [
 
 export const EXPERIENCES = [
   {
-  role: "Accessibility Developer",
-  company: "Transcom",
-  duration: "March 2026 - June 2026",
-  description: "Contributed to Juno, an AI-powered accessibility automation platform designed to identify, analyze, and assist in resolving accessibility issues across enterprise websites. Developed scalable React.js frontend modules, optimized application performance through rendering and code-splitting techniques, and collaborated with product and engineering teams to deliver data-driven accessibility insights and remediation workflows."
+    role: "Accessibility Developer",
+    company: "Transcom",
+    duration: "March 2026 - June 2026",
+    description:
+      "Contributed to Juno, an AI-powered accessibility automation platform by developing scalable full-stack solutions using React.js, Node.js, and REST APIs. Built low-latency integrations between frontend modules and AI services, optimized application performance through lazy loading, code splitting, and efficient rendering, and collaborated within Agile teams to deliver secure, high-performance enterprise accessibility solutions."
   },
+
   {
     role: "Software Engineer",
     company: "Next Smart Move",
     duration: "October 2023 - January 2026",
-    description: "Designed and developed scalable front-end applications using React and TypeScript to power Mecellem’s AI-driven legal workflows. Built reusable, high-performance UI components and integrated semantic search, document analysis, wrt workflow automation APIs in collaboration with backend and AI teams. Implemented state management, role-based access control, and performance optimizations for data-intensive legal use cases. Led development of document-centric features including viewing, annotation, and contextual navigation. Translated business and legal requirements into clear technical solutions, while contributing to feature scoping, backlog grooming, and sprint execution to ensure timely, high-quality releases."
-  },  
+    description:
+      "Engineered Mecellem, an AI-powered LegalTech platform comprising 36+ enterprise services, by building scalable full-stack applications using React.js, Angular, Node.js, Java, .NET, and REST APIs. Developed reusable frontend components, backend services, secure authentication, workflow automation, semantic search, and document management capabilities while collaborating with product, AI, QA, and engineering teams in an Agile environment. Improved platform performance through efficient state management, lazy loading, memoization, and cloud-integrated architectures."
+  },
+
   {
     role: "Software Engineer",
-    company: "Trinesis Technologies pvt ltd.",
+    company: "Trinesis Technologies Pvt. Ltd.",
     duration: "December 2022 - September 2023",
-    description: "Collaborated with cross-functional teams to improve system efficiency, achieving a measurable performance boost through effective frontend data extraction and integration. Delivered user-centric features such as interactive PDF annotations, data-driven visualizations, sentiment insights, and AI-powered chatbot experiences. Orchestrated development of core platform modules, contributed to architectural enhancements, and actively participated in peer code reviews to ensure quality and scalability."
+    description:
+      "Developed enterprise-grade software for a U.S. government project by building scalable frontend interfaces, backend services, and REST API integrations using React.js, Next.js, Node.js, Java, SQL, and cloud-based technologies. Delivered features including PDF annotations, AI chatbot integration, statistical dashboards, sentiment analysis, and intelligent document workflows while improving system performance, maintainability, and code quality through Agile development practices."
   },
+
   {
     role: "Software Developer",
     company: "Freelance",
     duration: "July 2022 - December 2022",
-    description: "Developed intuitive features using JavaScript & Java, with critical bug fixes that decreased turnaround time by 4%. Worked with cross-platform teams to implement code enhancements for API Services integration in the LMM Module. Maintained client communication to ensure aligned iterations and improvements."
-  },
-  // {
-  //   role: "D2AS Associate",
-  //   company: "Amazon",
-  //   duration: "February 2021 - June 2022",
-  //   description: "Specialized in troubleshooting and debugging for Amazon platforms, identifying and resolving reported issues. Achieved a 30% reduction in issue resolution time by implementing a restructured workflow for the issue-reporting portal."
-  // }
+    description:
+      "Designed and developed full-stack web applications using JavaScript, Java, Node.js, and modern frontend technologies. Built RESTful APIs, implemented business logic, integrated third-party services, resolved production issues, and collaborated directly with clients to gather requirements, deliver solutions, and ensure continuous product improvements."
+  }
 ];
 
 // Add more sections as needed
